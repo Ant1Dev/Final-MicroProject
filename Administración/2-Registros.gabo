@@ -1,15 +1,17 @@
-Administracion: Admin
-Desechables: Dese[ND], Fecha_Caducidad_D: FechaD;
-Instrumental: Inst[NI], Fecha_E: FechaE;
-Farmacos: Farm[NF], Fecha_Caducidad_F: FechaF;
-
 Registro: Administracion;
-    // ...
+    Desechables: Cadena;
+    Instrumental: Cadena;
+    Farmacos: Cadena;
+    Alimentos: Cadena;
+    Sangre: Cadena;
+    Gases: Cadena;
+    Movilidad: Cadena;
+    Equipos: Cadena;
 Fin_Registro
 
 Registro: Desechables;
     Nombre: Cadena; 
-    ID: Cadena; 
+    ID: Entero; 
     Cantidad: Entero;
     Medida: Cadena; 
     Fecha_Caducidad_Desechables: Entero; 
@@ -22,7 +24,7 @@ Fin_Registro
 
 Registro: Instrumental;
     Nombre: Cadena; 
-    ID: Cadena; 
+    ID: Entero; 
     Cantidad: Entero;
     Medida: Cadena; 
     Fecha_Esterilizacion: entero;
@@ -33,11 +35,9 @@ Registro: Fecha_E;
     Dia, Mes, Year: Entero;
 Fin_Registro
 
-Farmacos: Farm[NF], Fecha_Caducidad_F: FechaF;
-
 Registro: Farmacos;
     Nombre: Cadena;
-    ID: Cadena; 
+    ID: Entero; 
     Presentacion: Cadena; 
     Concentracion: Cadena; 
     Temperatura: Cadena; 
@@ -51,8 +51,11 @@ Registro: Fecha_Caducidad_F;
     Dia, Mes, Year: Entero;
 Fin_Registro
 
+Alimentos: Alim[NM], Fecha_Caducidad_A: FechaA;
+
 Registro: Alimentos;
     Nombre: Cadena; 
+    ID: Entero;
     Cantidad: Entero;
     Medida: Cadena; 
     Fecha_Caducidad_A: Entero;
@@ -68,7 +71,7 @@ Registro: Sangre;
     Nombre_Donante: Cadena;
     Apellido_Donante: Cadena;
     Producto: Cadena; 
-    ID: Cadena; 
+    ID: Entero; 
     Grupo: Cadena; // Grupo Sanguíneo
     Cantidad: Entero; // En número de bolsas
     Extraccion: Entero;
@@ -81,7 +84,7 @@ Fin_Registro
 
 Registro: Gases;
     Nombre: Cadena; // Oxígeno, Óxido Nitroso, Aire Comprimido
-    ID: Cadena; 
+    ID: Entero; 
     Cantidad: Entero;
     Medida: Cadena; // Cilindro, Litro cúbico
     Presion_Minima: Entero; // Presión requerida para considerar el cilindro vacío
@@ -89,16 +92,13 @@ Registro: Gases;
 Fin_Registro
 
 Registro: Movilidad;
-    Nombre: Cadena; // Silla de Ruedas, Andador, Camilla de Traslado
-    ID: Cadena; 
+    Nombre: Cadena;
+    ID: Entero; 
     Cantidad: Entero;
-    Estado: Cadena; // Operativo, Requiere Reparación
-    Departamento: Cadena; // Departamento asignado o en uso
-    Fecha_Mantenimiento_Movil: Entero; //AAAAAA
-    Proveedor: Cadena; /* asas
-    ASASA
-    */
-
+    Estado: Cadena;
+    Departamento: Cadena;
+    Fecha_Mantenimiento_Movil: Entero;
+    Proveedor: Cadena;
 Fin_Registro
 
 Registro: Fecha_Mantenimiento_M;
@@ -107,7 +107,7 @@ Fin_Registro
 
 Registro: Equipos;
     Nombre: Cadena; 
-    ID: Cadena; 
+    ID: Entero; 
     Departamento: Cadena; 
     Estado: Cadena; 
     Fecha_Mantenimiento_Admin: Entero;

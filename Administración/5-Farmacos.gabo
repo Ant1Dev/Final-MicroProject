@@ -1,10 +1,27 @@
-Procedimiento Farmaco (E/S: Admin.Farm[I].Nombre, Admin.Farm[I].Medida, Admin.Farm[I].Proveedor: Cadena, NF, Admin.Farm[I].ID, Admin.Farm[I].Cantidad, Admin.Farm[I].FechaF.Dia, Admin.Farm[I].FechaF.Mes, Admin.Farm[I].FechaF.Year: Entero);
+Procedimiento Farmaco (E/S: Admin.Farm[I].Nombre, Admin.Farm[I].Medida, Admin.Farm[I].Proveedor, Admin.Farm[I].Presentacion, Admin.Farm[I].Concentracion, Admin.Farm[I].Temperatura: Cadena, NF, Admin.Farm[I].ID, Admin.Farm[I].Cantidad, Admin.Farm[I].FechaF.Dia, Admin.Farm[I].FechaF.Mes, Admin.Farm[I].FechaF.Year: Entero);
 Inicio
     Var I, Opc, ID, Cant, OpcP, OpcC, OpcT, OpcM, Dia, Mes, Year, OpcB: Entero;
 
-    Mostrar << "Ingrese la cantidad de Farmacos";
+    Mostrar << "Bienvenido al registro de Fármacos";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⢠⣌⣉⠙⠛⠿⢿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣷⣶⣤⣤⡈⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⡿⠟⠁⠀⠀⠀⣠⣴⠟⠛⠛⠛⢷⣄⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠟⠁⠀⠀⠀⠀⠀⢹⡇⠀";
+    Mostrar << "⠀⠀⠀⢀⣠⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⠋⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀";
+    Mostrar << "⠀⢀⣾⣿⣿⣿⣿⣿⠧⠀⠀⠀⠀⠀⠀⠀⣠⡿⠁⠀⠀⠀⠀⠀⠀⠀⣠⡿⠁⠀";
+    Mostrar << "⠀⢸⣿⡿⠟⠋⣉⣠⣴⡆⠀⠀⠀⠀⢀⣼⣿⣦⡀⠀⠀⠀⠀⠀⠀⣴⠟⠀⠀⠀";
+    Mostrar << "⠀⠈⣡⣤⣶⣿⣿⣿⣿⠃⠀⠀⠀⣠⣾⣿⣿⣿⣿⣶⣄⡀⠀⢀⣾⠋⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠙⠻⠿⠿⠿⠛⠁⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠿⣿⣿⣿⣿⡿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+
+    Mostrar << "Ingrese la cantidad de Farmacos a registrar";
     Leer >> NF;
-    Mientras (NF < 2 And NF > 500) Hacer;
+    Mientras (NF < 2 Or NF > 500) Hacer;
         Mostrar << "Solo valores entre 2-500";
         Leer >> NF;
     Fin_Mientras
@@ -22,7 +39,7 @@ Inicio
         Mostrar << "10: Metformina";
         Mostrar << "11: Otro";
         Leer >> Opc;
-        Mientras (Opc < 1 And Opc > 11) Hacer;
+        Mientras (Opc < 1 Or Opc > 11) Hacer;
             Mostrar << "Solo valores entre 1-11";
             Leer >> Opc;
         Fin_Mientras
@@ -68,7 +85,7 @@ Inicio
         Mostrar << "4: Crema";
         Mostrar << "5: Cápsula";
         Leer >> OpcP;
-        Mientras (OpcP < 1 And OpcP > 5) Hacer;
+        Mientras (OpcP < 1 Or OpcP > 5) Hacer;
             Mostrar << "Solo valores entre 1-5";
             Leer >> OpcP;
         Fin_Mientras
@@ -109,7 +126,7 @@ Inicio
         Mostrar << "17: 4000 UI";
         Mostrar << "18: 100 U/dosis";
         Leer >> OpcC;
-        Mientras (OpcC < 1 And OpcC > 18) Hacer;
+        Mientras (OpcC < 1 Or OpcC > 18) Hacer;
             Mostrar << "Solo valores entre 1-18";
             Leer >> OpcC;
         Fin_Mientras
@@ -160,7 +177,7 @@ Inicio
         Mostrar << "4: 8°C a 15°C";
         Mostrar << "5: 20°C a 25°C";
         Leer(OpcT);
-        Mientras (OpcT < 1 And OpcT > 5) Hacer;
+        Mientras (OpcT < 1 Or OpcT > 5) Hacer;
             Mostrar << "Solo valores entre 1-5";
             Leer >> OpcT;
         Fin_Mientras
@@ -193,7 +210,7 @@ Inicio
         Mostrar << "4: Litro";
         Mostrar << "5: Kilogramo";
         Leer >> OpcM;
-        Mientras (OpcM < 1 And OpcM > 5) Hacer;
+        Mientras (OpcM < 1 Or OpcM > 5) Hacer;
             Mostrar << "Solo valores entre 1-5";
             Leer >> OpcM;
         Fin_Mientras
@@ -213,14 +230,14 @@ Inicio
 
         Mostrar << "Ingrese dia de Caducidad";
         Leer >> Dia;
-        Mientras (Dia < 1 And Dia > 31) Hacer;
+        Mientras (Dia < 1 Or Dia > 31) Hacer;
             Mostrar << "Solo valores entre 1-31";
         Fin_Mientras
         Admin.Farm[I].FechaF.Dia = Dia;
 
         Mostrar << "Ingrese mes de Caducidad";
         Leer >> Mes;
-        Mientras (Mes < 1 And Mes > 12) Hacer;
+        Mientras (Mes < 1 Or Mes > 12) Hacer;
             Mostrar << "Solo valores entre 1-12";
         Fin_Mientras
         Admin.Farm[I].FechaF.Mes = Mes;
@@ -246,7 +263,7 @@ Inicio
         Mostrar << "11: Jabra Fine Generics";
         Mostrar << "12: Otro";
         Leer >> OpcB;
-        Mientras (OpcB < 1 And OpcB > 12) Hacer;
+        Mientras (OpcB < 1 Or OpcB > 12) Hacer;
             Mostrar << "Solo valores entre 1-12";
             Leer >> OpcB;
         Fin_Mientras

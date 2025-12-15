@@ -1,0 +1,202 @@
+Procedimiento Ingrediente (E/S: Admin.Alim[NM].Nombre, Admin.Alim[NM].Medida, Admin.Alim[I].Tipo_Dieta, Admin.Alim[NM].Proveedor: Cadena, NM, Admin.Alim[I].ID, Admin.Alim[I].Cantidad, Admin.Alim[I].FechaA.Dia, Admin.Alim[I].FechaA.Mes, Admin.Alim[I].FechaA.Year: Entero);
+Inicio
+    Var I, Opc, ID, Cant, OpcM, Dia, Mes, Year, OpcD, OpcB: Entero;
+
+    Mostrar << "Bienvenido al registro de Ingredientes";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣔⣶⣎⠉⠉⠓⠦⡀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠴⠋⠁⠀⠀⠀⠙⠻⢆⠀⠀⠀⣹⡄⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⢀⠴⠿⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⡠⠊⠀⠀⠀⠀⠙⢷⡄⠀⠀⠀⠀⠀⠀⠀⢀⢾⠟⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠃⠀⠀⠀⠀⡀⣔⣿⠗⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⡮⣝⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡸⣷⡟⠁⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⡞⠀⠀⠁⠙⠀⠀⠀⠀⠀⠀⠀⠀⣠⢀⡯⡞⠁⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⢸⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢔⡱⡽⢍⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⢸⡀⠀⠀⠀⠀⡠⡠⠦⢧⢯⣫⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠙⢷⣧⠭⢝⡻⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+
+    Mostrar << "Ingrese la cantidad de ingredientes a registrar";
+    Leer >> NM;
+    Mientras (NM < 2 Or NM > 500) Hacer;
+        Mostrar << "Solo valores entre 2-500";
+        Leer >> NM;
+    Fin_Mientras
+
+    Para (I = 1 Hasta I = NM) Hacer;
+        Mostrar << "Seleccione el Ingrediente";
+        Mostrar << "1: Harina de Trigo";
+        Mostrar << "2: Arroz Grano Largo";
+        Mostrar << "3: Leche";
+        Mostrar << "4: Aceite Vegetal";
+        Mostrar << "5: Azúcar Refinada";
+        Mostrar << "6: Sal Yodada";
+        Mostrar << "7: Frijoles Secos";
+        Mostrar << "8: Pastas";
+        Mostrar << "9: Avena en Hojuelas";
+        Mostrar << "10: Huevos";
+        Leer >> Opc;
+        Mientras (Opc < 1 Or Opc > 11) Hacer;
+            Mostrar << "Solo valores entre 1-11";
+            Leer >> Opc;
+        Fin_Mientras
+
+        En_Caso (Opc > 0) Sea;
+            Caso(Opc = 1);
+                Admin.Alim[I].Nombre = "Harina de Trigo";
+            Caso(Opc = 2);
+                Admin.Alim[I].Nombre = "Arroz Grano Largo";
+            Caso(Opc = 3);
+                Admin.Alim[I].Nombre = "Leche";
+            Caso(Opc = 4);
+                Admin.Alim[I].Nombre = "Aceite Vegetal";
+            Caso(Opc = 5);
+                Admin.Alim[I].Nombre = "Azúcar Refinada";
+            Caso(Opc = 6);
+                Admin.Alim[I].Nombre = "Sal Yodada";
+            Caso(Opc = 7);
+                Admin.Alim[I].Nombre = "Frijoles Secos";
+            Caso(Opc = 8);
+                Admin.Alim[I].Nombre = "Pastas";
+            Caso(Opc = 9);
+                Admin.Alim[I].Nombre = "Avena en Hojuelas";
+            Caso(Opc = 10);
+                Admin.Alim[I].Nombre = "Huevos";
+            Otro_Caso
+                Mostrar << "Ingrese el nombre del Ingrediente";
+                Leer >> Admin.Alim[I].Nombre;
+        Fin_Caso
+
+        Mostrar << "Ingrese la ID del Ingrediente";
+        Leer >> ID;
+        Mientras (ID < 1) Hacer;
+            Mostrar << "Solo valores positivos";
+            Leer >> ID;
+        Fin_Mientras
+        Admin.Alim[I].ID = ID;
+
+        Mostrar << "Ingrese las cantidades del Ingrediente";
+        Leer >> Cant;
+        Mientras (Cant < 0) Hacer;
+            Mostrar << "Solo valores mayores a 0";
+            Leer >> Cant;
+        Fin_Mientras
+        Admin.Alim[I].Cantidad = Cant;
+
+        Mostrar << "Ingrese la medida del Ingrediente";
+        Mostrar << "1: Caja";
+        Mostrar << "2: Paquete";
+        Mostrar << "3: Unidad";
+        Mostrar << "4: Litro";
+        Mostrar << "5: Kilogramo";
+        Leer >> OpcM;
+        Mientras (OpcM < 1 Or OpcM > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcM;
+        Fin_Mientras
+        En_Caso (OpcM > 0) Sea;
+            Caso(OpcM = 1);
+                Admin.Alim[I].Medida = "Caja";
+            Caso(OpcM = 2);
+                Admin.Alim[I].Medida = "Paquete";
+            Caso(OpcM = 3);
+                Admin.Alim[I].Medida = "Unidad";
+            Caso(OpcM = 4);
+                Admin.Alim[I].Medida = "Litro";
+            Otro_Caso
+                Admin.Alim[I].Medida = "Kilogramo";
+        Fin_Caso
+
+        Mostrar << "Ingrese dia de caducidad";
+        Leer >> Dia;
+        Mientras (Dia < 1 Or Dia > 31) Hacer;
+            Mostrar << "Solo valores entre 1-31";
+        Fin_Mientras
+        Admin.Alim[I].FechaA.Dia = Dia;
+
+        Mostrar << "Ingrese mes de caducidad";
+        Leer >> Mes;
+        Mientras (Mes < 1 Or Mes > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+        Fin_Mientras
+        Admin.Alim[I].FechaA.Mes = Mes;
+
+        Mostrar << "Ingrese Año de caducidad";
+        Leer >> Year;
+        Mientras (Year < 2026) Hacer;
+            Mostrar << "Solo valores mayores a 2026";
+        Fin_Mientras
+        Admin.Alim[I].FechaA.Year = Year;
+
+        Mostrar << "Ingrese el tipo de Dieta del Ingrediente";
+        Mostrar << "1: Vegano";
+        Mostrar << "2: Sin Gluten";
+        Mostrar << "3: Keto";
+        Mostrar << "4: Bajo en Sodio";
+        Mostrar << "5: General";
+        Leer >> OpcD;
+        Mientras (OpcD < 1 Or OpcD > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcD;
+        Fin_Mientras
+        En_Caso (OpcD > 0) Sea;
+            Caso(OpcD = 1);
+                Admin.Alim[I].Tipo_Dieta = "Vegano";
+            Caso(OpcD = 2);
+                Admin.Alim[I].Tipo_Dieta = "Sin Gluten";
+            Caso(OpcD = 3);
+                Admin.Alim[I].Tipo_Dieta = "Keto";
+            Caso(OpcD = 4);
+                Admin.Alim[I].Tipo_Dieta = "Bajo en Sodio";
+            Otro_Caso
+                Admin.Alim[I].Tipo_Dieta = "General";
+        Fin_Caso
+
+        Mostrar << "Seleccione el nombre del Proveedor";
+        Mostrar << "1: Elecentro Fresh Distributors";
+        Mostrar << "2: Hollow Harvest Supply";
+        Mostrar << "3: Six Seven Grains & Flour";
+        Mostrar << "4: Ranger Food Logistics";
+        Mostrar << "5: NigraPro Provisions";
+        Mostrar << "6: Kavaleiros Central Kitchen";
+        Mostrar << "7: WolfPack Food Service";
+        Mostrar << "8: Olympus Dairy & Meat";
+        Mostrar << "9: Nexus Wholesale Foods";
+        Mostrar << "10: E-404 Ingredient Warehouse";
+        Mostrar << "11: Jabra Nutritional Supply";
+        Mostrar << "12: Otro";
+        Leer >> OpcB;
+        Mientras (OpcB < 1 Or OpcB > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> OpcB;
+        Fin_Mientras
+
+        En_Caso (OpcB > 0) Sea;
+            Caso(OpcB = 1);
+                Admin.Alim[I].Proveedor = "Electro Fresh Distributors";
+            Caso(OpcB = 2);
+                Admin.Alim[I].Proveedor = "Hollow Harvest Supply";
+            Caso(OpcB = 3);
+                Admin.Alim[I].Proveedor = "Six Seven Grains & Flour";
+            Caso(OpcB = 4);
+                Admin.Alim[I].Proveedor = "Ranger Food Logistics";
+            Caso(OpcB = 5);
+                Admin.Alim[I].Proveedor = "NigraPro Provisions";
+            Caso(OpcB = 6);
+                Admin.Alim[I].Proveedor = "Kavaleiros Central Kitchen";
+            Caso(OpcB = 7);
+                Admin.Alim[I].Proveedor = "WolfPack Food Service";
+            Caso(OpcB = 8);
+                Admin.Alim[I].Proveedor = "Olympus Dairy & Meat";
+            Caso(OpcB = 9);
+                Admin.Alim[I].Proveedor = "Nexus Wholesale Foods";
+            Caso(OpcB = 10);
+                Admin.Alim[I].Proveedor = "E-404 Ingredient Warehouse";
+            Caso(OpcB = 11);
+                Admin.Alim[I].Proveedor = "Jabra Nutritional Supply";
+            Otro_Caso
+                Mostrar << "Ingrese nombre del Proveedor";
+                Leer >> Admin.Alim[I].Proveedor;
+        Fin_Caso
+    Fin_Para
+
+Fin_Procedimiento

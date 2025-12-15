@@ -2,9 +2,23 @@ Procedimiento Desechable (E/S: Admin.Dese[ND].Nombre, Admin.Dese[ND].Medida, Adm
 Inicio
     Var I, Opc, ID, Cant, OpcM, Dia, Mes, Year, OpcB: Entero;
 
-    Mostrar << "Ingrese la cantidad de desechables";
+    Mostrar << "Bienvenido al registro de Desechables";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠄";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠔⠁⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢤⡄⠂⢺⠃⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⡪⠊⠙⢷⣤⡆⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⡪⠊⠀⠀⠀⢈⠝⠁⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⣾⣯⣦⡀⠀⢀⠔⠁⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⡠⡮⠋⠀⠙⢿⣷⠔⠁⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⣀⣠⡾⠊⠀⠀⢀⢔⠕⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⢷⣸⣊⠀⠀⠀⢰⠕⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⡀⣀⠜⠓⣝⠵⣂⣔⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠨⠓⣅⠔⡄⠉⠙⠂⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠑⠠⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+
+    Mostrar << "Ingrese la cantidad de desechables a registrar";
     Leer >> ND;
-    Mientras (ND < 2 And ND > 500) Hacer;
+    Mientras (ND < 2 Or ND > 500) Hacer;
         Mostrar << "Solo valores entre 2-500";
         Leer >> ND;
     Fin_Mientras
@@ -23,7 +37,7 @@ Inicio
         Mostrar << "10: Batas";
         Mostrar << "11: Otro";
         Leer >> Opc;
-        Mientras (Opc < 1 And Opc > 11) Hacer;
+        Mientras (Opc < 1 Or Opc > 11) Hacer;
             Mostrar << "Solo valores entre 1-11";
             Leer >> Opc;
         Fin_Mientras
@@ -77,7 +91,7 @@ Inicio
         Mostrar << "4: Litro";
         Mostrar << "5: Kilogramo";
         Leer >> OpcM;
-        Mientras (OpcM < 1 And OpcM > 5) Hacer;
+        Mientras (OpcM < 1 Or OpcM > 5) Hacer;
             Mostrar << "Solo valores entre 1-5";
             Leer >> OpcM;
         Fin_Mientras
@@ -96,14 +110,14 @@ Inicio
 
         Mostrar << "Ingrese dia de caducidad";
         Leer >> Dia;
-        Mientras (Dia < 1 And Dia > 31) Hacer;
+        Mientras (Dia < 1 Or Dia > 31) Hacer;
             Mostrar << "Solo valores entre 1-31";
         Fin_Mientras
         Admin.Dese[I].FechaD.Dia = Dia;
 
         Mostrar << "Ingrese mes de caducidad";
         Leer >> Mes;
-        Mientras (Mes < 1 And Mes > 12) Hacer;
+        Mientras (Mes < 1 Or Mes > 12) Hacer;
             Mostrar << "Solo valores entre 1-12";
         Fin_Mientras
         Admin.Dese[I].FechaD.Mes = Mes;
@@ -129,7 +143,7 @@ Inicio
         Mostrar << "11: Jabra Health Solutions";
         Mostrar << "12: Otro";
         Leer >> OpcB;
-        Mientras (OpcB < 1 And OpcB > 12) Hacer;
+        Mientras (OpcB < 1 Or OpcB > 12) Hacer;
             Mostrar << "Solo valores entre 1-12";
             Leer >> OpcB;
         Fin_Mientras

@@ -2,9 +2,25 @@ Procedimiento Intrumental (E/S: Admin.Inst[I].Nombre, Admin.Inst[I].Medida, Admi
 Inicio
     Var I, Opc, ID, Cant, OpcM, Dia, Mes, Year, OpcB: Entero;
 
-    Mostrar << "Ingrese la cantidad de Instrumentales";
+    Mostrar << "Bienvenido al registro de Instrumentales";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣿⠇⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⡿⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣿⣿⣿⣿⡿⠁⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠰⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⠟⣿⣆⠘⠿⣿⠿⠟⠋⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡾⠋⣀⣴⡿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⣠⣶⠟⢉⣠⣾⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⢀⣴⠾⠋⣡⣴⡿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⣠⣶⠟⢁⣤⣾⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⡾⠛⣡⣴⡿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⣠⣾⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    
+    Mostrar << "Ingrese la cantidad de Instrumentales a registrar";
     Leer >> NI;
-    Mientras (N < 2 And NI > 500) Hacer;
+    Mientras (NI < 2 Or NI > 500) Hacer;
         Mostrar << "Solo valores entre 2-500";
         Leer >> NI;
     Fin_Mientras
@@ -23,7 +39,7 @@ Inicio
         Mostrar << "10: Termómetros Digitales";
         Mostrar << "11: Otro";
         Leer >> Opc;
-        Mientras (Opc < 1 And Opc > 11) Hacer;
+        Mientras (Opc < 1 Or Opc > 11) Hacer;
             Mostrar << "Solo valores entre 1-11";
             Leer >> Opc;
         Fin_Mientras
@@ -77,7 +93,7 @@ Inicio
         Mostrar << "4: Litro";
         Mostrar << "5: Kilogramo";
         Leer >> OpcM;
-        Mientras (OpcM < 1 And OpcM > 5) Hacer;
+        Mientras (OpcM < 1 Or OpcM > 5) Hacer;
             Mostrar << "Solo valores entre 1-5";
             Leer >> OpcM;
         Fin_Mientras
@@ -96,14 +112,14 @@ Inicio
 
         Mostrar << "Ingrese dia de Esterilizacion";
         Leer >> Dia;
-        Mientras (Dia < 1 And Dia > 31) Hacer;
+        Mientras (Dia < 1 Or Dia > 31) Hacer;
             Mostrar << "Solo valores entre 1-31";
         Fin_Mientras
         Admin.Inst[I].FechaE.Dia = Dia;
 
         Mostrar << "Ingrese mes de Esterilizacion";
         Leer >> Mes;
-        Mientras (Mes < 1 And Mes > 12) Hacer;
+        Mientras (Mes < 1 Or Mes > 12) Hacer;
             Mostrar << "Solo valores entre 1-12";
         Fin_Mientras
         Admin.Inst[I].FechaE.Mes = Mes;
@@ -129,7 +145,7 @@ Inicio
         Mostrar << "11: Jabra Fine Diagnostics";
         Mostrar << "12: Otro";
         Leer >> OpcB;
-        Mientras (OpcB < 1 And OpcB > 12) Hacer;
+        Mientras (OpcB < 1 Or OpcB > 12) Hacer;
             Mostrar << "Solo valores entre 1-12";
             Leer >> OpcB;
         Fin_Mientras
