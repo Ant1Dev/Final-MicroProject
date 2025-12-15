@@ -1,0 +1,283 @@
+Procedimiento Farmaco (E/S: Admin.Farm[I].Nombre, Admin.Farm[I].Medida, Admin.Farm[I].Proveedor: Cadena, NF, Admin.Farm[I].ID, Admin.Farm[I].Cantidad, Admin.Farm[I].FechaF.Dia, Admin.Farm[I].FechaF.Mes, Admin.Farm[I].FechaF.Year: Entero);
+Inicio
+    Var I, Opc, ID, Cant, OpcP, OpcC, OpcT, OpcM, Dia, Mes, Year, OpcB: Entero;
+
+    Mostrar << "Ingrese la cantidad de Farmacos";
+    Leer >> NF;
+    Mientras (NF < 2 And NF > 500) Hacer;
+        Mostrar << "Solo valores entre 2-500";
+        Leer >> NF;
+    Fin_Mientras
+
+    Para (I = 1 Hasta I = NF) Hacer;
+        Mostrar << "1: Paracetamol";
+        Mostrar << "2: Ibuprofeno";
+        Mostrar << "3: Amoxicilina";
+        Mostrar << "4: Omeprazol";
+        Mostrar << "5: Diazepam";
+        Mostrar << "6: Insulina";
+        Mostrar << "7: Morfina";
+        Mostrar << "8: Atorvastatina";
+        Mostrar << "9: Furosemida";
+        Mostrar << "10: Metformina";
+        Mostrar << "11: Otro";
+        Leer >> Opc;
+        Mientras (Opc < 1 And Opc > 11) Hacer;
+            Mostrar << "Solo valores entre 1-11";
+            Leer >> Opc;
+        Fin_Mientras
+
+        En_Caso (Opc > 0) Sea;
+            Caso(Opc = 1);
+                Admin.Farm[I].Nombre = "Paracetamol";
+            Caso(Opc = 2);
+                Admin.Farm[I].Nombre = "Ibuprofeno";
+            Caso(Opc = 3);
+                Admin.Farm[I].Nombre = "Amoxicilina";
+            Caso(Opc = 4);
+                Admin.Farm[I].Nombre = "Omeprazol";
+            Caso(Opc = 5);
+                Admin.Farm[I].Nombre = "Diazepam";
+            Caso(Opc = 6);
+                Admin.Farm[I].Nombre = "Insulina";
+            Caso(Opc = 7);
+                Admin.Farm[I].Nombre = "Morfina";
+            Caso(Opc = 8);
+                Admin.Farm[I].Nombre = "Atorvastatina";
+            Caso(Opc = 9);
+                Admin.Farm[I].Nombre = "Furosemida";
+            Caso(Opc = 10);
+                Admin.Farm[I].Nombre = "Metformina";
+            Otro_Caso
+                Mostrar << "Ingrese el nombre del Farmaco";
+                Leer >> Admin.Farm[I].Nombre;
+        Fin_Caso
+
+        Mostrar << "Ingrese la ID del Farmaco";
+        Leer >> ID;
+        Mientras (ID < 1) Hacer;
+            Mostrar << "Solo valores positivos";
+            Leer >> ID;
+        Fin_Mientras
+        Admin.Farm[I].ID = ID;
+
+        Mostrar << "Ingrese la presentación del Farmaco";
+        Mostrar << "1: Tableta";
+        Mostrar << "2: Jarabe";
+        Mostrar << "3: Ampolla";
+        Mostrar << "4: Crema";
+        Mostrar << "5: Cápsula";
+        Leer >> OpcP;
+        Mientras (OpcP < 1 And OpcP > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcP;
+        Fin_Mientras
+        En_Caso (OpcP > 0) Sea;
+            Caso(OpcP = 1);
+                Admin.Farm[I].Presentacion = "Tableta";
+            Caso(OpcP = 2);
+                Admin.Farm[I].Presentacion = "Jarabe";
+            Caso(OpcP = 3);
+                Admin.Farm[I].Presentacion = "Ampolla";
+            Caso(OpcP = 4);
+                Admin.Farm[I].Presentacion = "Crema";
+            Otro_Caso
+                Admin.Farm[I].Presentacion = "Cápsula";
+        Fin_Caso
+
+        Mostrar << "Seleccione la Concentración del Farmaco";
+        Mostrar << "Concentración en Sólidos";
+        Mostrar << "1: 500 mg";
+        Mostrar << "2: 25 mg";
+        Mostrar << "3: 1000 mg";
+        Mostrar << "4: 10 mcg";
+        Mostrar << "5: 5 mg/cápsula";
+        Mostrar << "6: 250 mg/comprimido";
+        Mostrar << "Concentración en Líquidos";
+        Mostrar << "7: 10 mg/ml";
+        Mostrar << "8: 50 mg/5 ml";
+        Mostrar << "9: 1 gramo/10 ml";
+        Mostrar << "10: 250 mg/bolsa";
+        Mostrar << "11: 9 mg/ml";
+        Mostrar << "12: 1 mg/ml";
+        Mostrar << "Concentración Tópica";
+        Mostrar << "13: 10 mg/g";
+        Mostrar << "14: 0.5 mg/g";
+        Mostrar << "15: 20 mg/g";
+        Mostrar << "Unidades Biológicas o Especiales";
+        Mostrar << "16: 100 UI/ml";
+        Mostrar << "17: 4000 UI";
+        Mostrar << "18: 100 U/dosis";
+        Leer >> OpcC;
+        Mientras (OpcC < 1 And OpcC > 18) Hacer;
+            Mostrar << "Solo valores entre 1-18";
+            Leer >> OpcC;
+        Fin_Mientras
+
+        En_Caso (OpcC > 0) Sea;
+            Caso(OpcC = 1);
+                Admin.Farm[I].Concentracion = "500 mg";
+            Caso(OpcC = 2);
+                Admin.Farm[I].Concentracion = "25 mg";
+            Caso(OpcC = 3);
+                Admin.Farm[I].Concentracion = "1000 mg";
+            Caso(OpcC = 4);
+                Admin.Farm[I].Concentracion = "10 mcg";
+            Caso(OpcC = 5);
+                Admin.Farm[I].Concentracion = "5 mg/cápsula";
+            Caso(OpcC = 6);
+                Admin.Farm[I].Concentracion = "250 mg/comprimido";
+            Caso(OpcC = 7);
+                Admin.Farm[I].Concentracion = "10 mg/ml";
+            Caso(OpcC = 8);
+                Admin.Farm[I].Concentracion = "50 mg/5 ml";
+            Caso(OpcC = 9);
+                Admin.Farm[I].Concentracion = "1 gramo/10 ml";
+            Caso(OpcC = 10);
+                Admin.Farm[I].Concentracion = "250 mg/bolsa";
+            Caso(OpcC = 11);
+                Admin.Farm[I].Concentracion = "9 mg/ml";
+            Caso(OpcC = 12);
+                Admin.Farm[I].Concentracion = "1 mg/ml";
+            Caso(OpcC = 13);
+                Admin.Farm[I].Concentracion = "10 mg/g";
+            Caso(OpcC = 14);
+                Admin.Farm[I].Concentracion = "0.5 mg/g";
+            Caso(OpcC = 15);
+                Admin.Farm[I].Concentracion = "20 mg/g";
+            Caso(OpcC = 16);
+                Admin.Farm[I].Concentracion = "100 UI/ml";
+            Caso(OpcC = 17);
+                Admin.Farm[I].Concentracion = "4000 UI";
+            Otro_Caso
+                Admin.Farm[I].Concentracion = "100 U/dosis";
+        Fin_Caso
+
+        Mostrar << "Ingrese la Temperatura del Farmaco";
+        Mostrar << "1: 2°C a 8°C";
+        Mostrar << "2: Menor de -15°C";
+        Mostrar << "3: 15°C a 25°C";
+        Mostrar << "4: 8°C a 15°C";
+        Mostrar << "5: 20°C a 25°C";
+        Leer(OpcT);
+        Mientras (OpcT < 1 And OpcT > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcT;
+        Fin_Mientras
+
+        En_Caso (OpcT > 0) Sea;
+            Caso(OpcT = 1);
+                Admin.Farm[I].Temperatura = "2°C a 8°C";
+            Caso(OpcT = 2);
+                Admin.Farm[I].Temperatura = "Menor de -15°C";
+            Caso(OpcT = 3);
+                Admin.Farm[I].Temperatura = "15°C a 25°C";
+            Caso(OpcT = 4);
+                Admin.Farm[I].Temperatura = "8°C a 15°C";
+            Otro_Caso
+                Admin.Farm[I].Temperatura = "20°C a 25°C";
+        Fin_Caso
+
+        Mostrar << "Ingrese las cantidades del Farmaco";
+        Leer >> Cant;
+        Mientras (Cant < 0) Hacer;
+            Mostrar << "Solo valores mayores a 0";
+            Leer >> Cant;
+        Fin_Mientras
+        Admin.Farm[I].Cantidad = Cant;
+
+        Mostrar << "Ingrese la medida del Farmaco";
+        Mostrar << "1: Caja";
+        Mostrar << "2: Paquete";
+        Mostrar << "3: Unidad";
+        Mostrar << "4: Litro";
+        Mostrar << "5: Kilogramo";
+        Leer >> OpcM;
+        Mientras (OpcM < 1 And OpcM > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcM;
+        Fin_Mientras
+
+        En_Caso (OpcM > 0) Sea;
+            Caso(OpcM = 1);
+                Admin.Farm[I].Medida = "Caja";
+            Caso(OpcM = 2);
+                Admin.Farm[I].Medida = "Paquete";
+            Caso(OpcM = 3);
+                Admin.Farm[I].Medida = "Unidad";
+            Caso(OpcM = 4);
+                Admin.Farm[I].Medida = "Litro";
+            Otro_Caso
+                Admin.Farm[I].Medida = "Kilogramo";
+        Fin_Caso
+
+        Mostrar << "Ingrese dia de Caducidad";
+        Leer >> Dia;
+        Mientras (Dia < 1 And Dia > 31) Hacer;
+            Mostrar << "Solo valores entre 1-31";
+        Fin_Mientras
+        Admin.Farm[I].FechaF.Dia = Dia;
+
+        Mostrar << "Ingrese mes de Caducidad";
+        Leer >> Mes;
+        Mientras (Mes < 1 And Mes > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+        Fin_Mientras
+        Admin.Farm[I].FechaF.Mes = Mes;
+
+        Mostrar << "Ingrese Año de Caducidad";
+        Leer >> Year;
+        Mientras (Year < 2026) Hacer;
+            Mostrar << "Solo valores mayores a 2026";
+        Fin_Mientras
+        Admin.Farm[I].FechaF.Year = Year;
+
+        Mostrar << "Seleccione el nombre del Proveedor";
+        Mostrar << "1: Elecentro Pharma Labs";
+        Mostrar << "2: HollowPharma Biologics";
+        Mostrar << "3: SevenSix Therapeutics";
+        Mostrar << "4: RangerMed Pharmaceuticals";
+        Mostrar << "5: NigraPro Chemistry";
+        Mostrar << "6: Kavaleiros BioDrugs";
+        Mostrar << "7: Wolf Pharma Solutions";
+        Mostrar << "8: Olympus BioResearch";
+        Mostrar << "9: Nexus Chemical Supply";
+        Mostrar << "10: E-404 Pharmaceutica";
+        Mostrar << "11: Jabra Fine Generics";
+        Mostrar << "12: Otro";
+        Leer >> OpcB;
+        Mientras (OpcB < 1 And OpcB > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> OpcB;
+        Fin_Mientras
+
+        En_Caso (OpcB > 0) Sea;
+            Caso(OpcB = 1);
+                Admin.Farm[I].Proveedor = "Elecentro Pharma Labs";
+            Caso(OpcB = 2);
+                Admin.Farm[I].Proveedor = "HollowPharma Biologics";
+            Caso(OpcB = 3);
+                Admin.Farm[I].Proveedor = "SevenSix Therapeutics";
+            Caso(OpcB = 4);
+                Admin.Farm[I].Proveedor = "RangerMed Pharmaceuticals";
+            Caso(OpcB = 5);
+                Admin.Farm[I].Proveedor = "NigraPro Chemistry";
+            Caso(OpcB = 6);
+                Admin.Farm[I].Proveedor = "Kavaleiros BioDrugs";
+            Caso(OpcB = 7);
+                Admin.Farm[I].Proveedor = "Wolf Pharma Solutions";
+            Caso(OpcB = 8);
+                Admin.Farm[I].Proveedor = "Olympus BioResearch";
+            Caso(OpcB = 9);
+                Admin.Farm[I].Proveedor = "Nexus Chemical Supply";
+            Caso(OpcB = 10);
+                Admin.Farm[I].Proveedor = "E-404 Pharmaceutica";
+            Caso(OpcB = 11);
+                Admin.Farm[I].Proveedor = "Jabra Fine Generics";
+            Otro_Caso
+                Mostrar << "Ingrese nombre del Proveedor";
+                Leer >> Admin.Farm[I].Proveedor;
+        Fin_Caso
+    Fin_Para
+
+Fin_Procedimiento

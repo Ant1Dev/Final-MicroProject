@@ -1,0 +1,166 @@
+Procedimiento Intrumental (E/S: Admin.Inst[I].Nombre, Admin.Inst[I].Medida, Admin.Inst[I].Proveedor: Cadena, NI, Admin.Inst[I].ID, Admin.Inst[I].Cantidad, Admin.Inst[I].FechaE.Dia, Admin.Inst[I].FechaE.Mes, Admin.Inst[I].FechaE.Year: Entero);
+Inicio
+    Var I, Opc, ID, Cant, OpcM, Dia, Mes, Year, OpcB: Entero;
+
+    Mostrar << "Ingrese la cantidad de Instrumentales";
+    Leer >> NI;
+    Mientras (N < 2 And NI > 500) Hacer;
+        Mostrar << "Solo valores entre 2-500";
+        Leer >> NI;
+    Fin_Mientras
+
+    Para (I = 1 Hasta I = NI) Hacer;
+        Mostrar << "Seleccione el Instrumental";
+        Mostrar << "1: Bisturíes Mangos";
+        Mostrar << "2: Pinzas de Hemostasia";
+        Mostrar << "3: Tijeras Quirúrgicas";
+        Mostrar << "4: Retractores";
+        Mostrar << "5: Portaagujas";
+        Mostrar << "6: Estetoscopios";
+        Mostrar << "7: Tensiómetros Manuales";
+        Mostrar << "8: Riñoneras Metálicas";
+        Mostrar << "9: Lámparas de Exploración";
+        Mostrar << "10: Termómetros Digitales";
+        Mostrar << "11: Otro";
+        Leer >> Opc;
+        Mientras (Opc < 1 And Opc > 11) Hacer;
+            Mostrar << "Solo valores entre 1-11";
+            Leer >> Opc;
+        Fin_Mientras
+
+        En_Caso (Opc > 0) Sea;
+            Caso(Opc = 1);
+                Admin.Inst[I].Nombre = "Bisturíes Mangos";
+            Caso(Opc = 2);
+                Admin.Inst[I].Nombre = "Pinzas de Hemostasia";
+            Caso(Opc = 3);
+                Admin.Inst[I].Nombre = "Tijeras Quirúrgicas";
+            Caso(Opc = 4);
+                Admin.Inst[I].Nombre = "Retractores";
+            Caso(Opc = 5);
+                Admin.Inst[I].Nombre = "Portaagujas";
+            Caso(Opc = 6);
+                Admin.Inst[I].Nombre = "Estetoscopios";
+            Caso(Opc = 7);
+                Admin.Inst[I].Nombre = "Tensiómetros Manuales";
+            Caso(Opc = 8);
+                Admin.Inst[I].Nombre = "Riñoneras Metálicas";
+            Caso(Opc = 9);
+                Admin.Inst[I].Nombre = "Lámparas de Exploración";
+            Caso(Opc = 10);
+                Admin.Inst[I].Nombre = "Termómetros Digitales Reutilizables";
+            Otro_Caso
+                Mostrar << "Ingrese el nombre del Intrumental";
+                Leer >> Admin.Inst[I].Nombre;
+        Fin_Caso
+
+        Mostrar << "Ingrese la ID del Intrumental";
+        Leer >> ID;
+        Mientras (ID < 1) Hacer;
+            Mostrar << "Solo valores positivos";
+            Leer >> ID;
+        Fin_Mientras
+        Admin.Inst[I].ID = ID;
+
+        Mostrar << "Ingrese las cantidades del Intrumental";
+        Leer >> Cant;
+        Mientras (Cant < 0) Hacer;
+            Mostrar << "Solo valores mayores a 0";
+            Leer >> Cant;
+        Fin_Mientras
+        Admin.Inst[I].Cantidad = Cant;
+
+        Mostrar << "Ingrese la medida del Intrumental";
+        Mostrar << "1: Caja";
+        Mostrar << "2: Paquete";
+        Mostrar << "3: Unidad";
+        Mostrar << "4: Litro";
+        Mostrar << "5: Kilogramo";
+        Leer >> OpcM;
+        Mientras (OpcM < 1 And OpcM > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcM;
+        Fin_Mientras
+        En_Caso (OpcM > 0) Sea;
+            Caso(OpcM = 1);
+                Admin.Inst[I].Medida = "Caja";
+            Caso(OpcM = 2);
+                Admin.Inst[I].Medida = "Paquete";
+            Caso(OpcM = 3);
+                Admin.Inst[I].Medida = "Unidad";
+            Caso(OpcM = 4);
+                Admin.Inst[I].Medida = "Litro";
+            Otro_Caso
+                Admin.Inst[I].Medida = "Kilogramo";
+        Fin_Caso
+
+        Mostrar << "Ingrese dia de Esterilizacion";
+        Leer >> Dia;
+        Mientras (Dia < 1 And Dia > 31) Hacer;
+            Mostrar << "Solo valores entre 1-31";
+        Fin_Mientras
+        Admin.Inst[I].FechaE.Dia = Dia;
+
+        Mostrar << "Ingrese mes de Esterilizacion";
+        Leer >> Mes;
+        Mientras (Mes < 1 And Mes > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+        Fin_Mientras
+        Admin.Inst[I].FechaE.Mes = Mes;
+
+        Mostrar << "Ingrese Año de Esterilizacion";
+        Leer >> Year;
+        Mientras (Year < 2026) Hacer;
+            Mostrar << "Solo valores mayores a 2026";
+        Fin_Mientras
+        Admin.Inst[I].FechaE.Year = Year;
+
+        Mostrar << "Seleccione el nombre del Proveedor";
+        Mostrar << "1: ElecentroTech MedEquip";
+        Mostrar << "2: HollowSteel Surgicals";
+        Mostrar << "3: SevenSix Clinical";
+        Mostrar << "4: RangerMed Instruments";
+        Mostrar << "5: NigraPro Surgical";
+        Mostrar << "6: Kavaleiros Operating";
+        Mostrar << "7: WolfSurgical Devices";
+        Mostrar << "8: Olympus Clinical";
+        Mostrar << "9: Nexus Surgical Gear";
+        Mostrar << "10: E-404 Instrumentarium";
+        Mostrar << "11: Jabra Fine Diagnostics";
+        Mostrar << "12: Otro";
+        Leer >> OpcB;
+        Mientras (OpcB < 1 And OpcB > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> OpcB;
+        Fin_Mientras
+
+        En_Caso (OpcB > 0) Sea;
+            Caso(OpcB = 1);
+                Admin.Inst[I].Proveedor = "ElectroTech MedEquip";
+            Caso(OpcB = 2);
+                Admin.Inst[I].Proveedor = "HollowSteel Surgicals";
+            Caso(OpcB = 3);
+                Admin.Inst[I].Proveedor = "SevenSix Clinical";
+            Caso(OpcB = 4);
+                Admin.Inst[I].Proveedor = "RangerMed Instruments";
+            Caso(OpcB = 5);
+                Admin.Inst[I].Proveedor = "NigraPro Surgical";
+            Caso(OpcB = 6);
+                Admin.Inst[I].Proveedor = "Kavaleiros Operating";
+            Caso(OpcB = 7);
+                Admin.Inst[I].Proveedor = "WolfSurgical Devices";
+            Caso(OpcB = 8);
+                Admin.Inst[I].Proveedor = "Olympus Clinical";
+            Caso(OpcB = 9);
+                Admin.Inst[I].Proveedor = "Nexus Surgical Gear";
+            Caso(OpcB = 10);
+                Admin.Inst[I].Proveedor = "E-404 Instrumentarium";
+            Caso(OpcB = 11);
+                Admin.Inst[I].Proveedor = "Jabra Fine Diagnostics";
+            Otro_Caso
+                Mostrar << "Ingrese nombre del Proveedor";
+                Leer >> Admin.Inst[I].Proveedor;
+        Fin_Caso
+    Fin_Para
+
+Fin_Procedimiento

@@ -1,0 +1,166 @@
+Procedimiento Desechable (E/S: Admin.Dese[ND].Nombre, Admin.Dese[ND].Medida, Admin.Dese[ND].Proveedor: Cadena, ND, Admin.Dese[I].ID, Admin.Dese[I].Cantidad, Admin.Dese[I].FechaD.Dia, Admin.Dese[I].FechaD.Mes, Admin.Dese[I].FechaD.Year: Entero);
+Inicio
+    Var I, Opc, ID, Cant, OpcM, Dia, Mes, Year, OpcB: Entero;
+
+    Mostrar << "Ingrese la cantidad de desechables";
+    Leer >> ND;
+    Mientras (ND < 2 And ND > 500) Hacer;
+        Mostrar << "Solo valores entre 2-500";
+        Leer >> ND;
+    Fin_Mientras
+
+    Para (I = 1 Hasta I = ND) Hacer;
+        Mostrar << "Seleccione el Desechable";
+        Mostrar << "1: Jeringas";
+        Mostrar << "2: Guantes";
+        Mostrar << "3: Suturas";
+        Mostrar << "4: Gasas";
+        Mostrar << "5: Vendas";
+        Mostrar << "6: Catéteres";
+        Mostrar << "7: Agujas";
+        Mostrar << "8: Tubos_Muestras";
+        Mostrar << "9: Mascarillas";
+        Mostrar << "10: Batas";
+        Mostrar << "11: Otro";
+        Leer >> Opc;
+        Mientras (Opc < 1 And Opc > 11) Hacer;
+            Mostrar << "Solo valores entre 1-11";
+            Leer >> Opc;
+        Fin_Mientras
+
+        En_Caso (Opc > 0) Sea;
+            Caso(Opc = 1);
+                Admin.Dese[I].Nombre = "Jeringas";
+            Caso(Opc = 2);
+                Admin.Dese[I].Nombre = "Guantes";
+            Caso(Opc = 3);
+                Admin.Dese[I].Nombre = "Suturas";
+            Caso(Opc = 4);
+                Admin.Dese[I].Nombre = "Gasas";
+            Caso(Opc = 5);
+                Admin.Dese[I].Nombre = "Vendas";
+            Caso(Opc = 6);
+                Admin.Dese[I].Nombre = "Catéteres";
+            Caso(Opc = 7);
+                Admin.Dese[I].Nombre = "Agujas";
+            Caso(Opc = 8);
+                Admin.Dese[I].Nombre = "Tubos_Muestras";
+            Caso(Opc = 9);
+                Admin.Dese[I].Nombre = "Mascarillas";
+            Caso(Opc = 10);
+                Admin.Dese[I].Nombre = "Batas";
+            Otro_Caso
+                Mostrar << "Ingrese el nombre del Desechable";
+                Leer >> Admin.Dese[I].Nombre;
+        Fin_Caso
+
+        Mostrar << "Ingrese la ID del Desechable";
+        Leer >> ID;
+        Mientras (ID < 1) Hacer;
+            Mostrar << "Solo valores positivos";
+            Leer >> ID;
+        Fin_Mientras
+        Admin.Dese[I].ID = ID;
+
+        Mostrar << "Ingrese las cantidades del Desechable";
+        Leer >> Cant;
+        Mientras (Cant < 0) Hacer;
+            Mostrar << "Solo valores mayores a 0";
+            Leer >> Cant;
+        Fin_Mientras
+        Admin.Dese[I].Cantidad = Cant;
+
+        Mostrar << "Ingrese la medida del Desechable";
+        Mostrar << "1: Caja";
+        Mostrar << "2: Paquete";
+        Mostrar << "3: Unidad";
+        Mostrar << "4: Litro";
+        Mostrar << "5: Kilogramo";
+        Leer >> OpcM;
+        Mientras (OpcM < 1 And OpcM > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcM;
+        Fin_Mientras
+        En_Caso (OpcM > 0) Sea;
+            Caso(OpcM = 1);
+                Admin.Dese[I].Medida = "Caja";
+            Caso(OpcM = 2);
+                Admin.Dese[I].Medida = "Paquete";
+            Caso(OpcM = 3);
+                Admin.Dese[I].Medida = "Unidad";
+            Caso(OpcM = 4);
+                Admin.Dese[I].Medida = "Litro";
+            Otro_Caso
+                Admin.Dese[I].Medida = "Kilogramo";
+        Fin_Caso
+
+        Mostrar << "Ingrese dia de caducidad";
+        Leer >> Dia;
+        Mientras (Dia < 1 And Dia > 31) Hacer;
+            Mostrar << "Solo valores entre 1-31";
+        Fin_Mientras
+        Admin.Dese[I].FechaD.Dia = Dia;
+
+        Mostrar << "Ingrese mes de caducidad";
+        Leer >> Mes;
+        Mientras (Mes < 1 And Mes > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+        Fin_Mientras
+        Admin.Dese[I].FechaD.Mes = Mes;
+
+        Mostrar << "Ingrese Año de caducidad";
+        Leer >> Year;
+        Mientras (Year < 2026) Hacer;
+            Mostrar << "Solo valores mayores a 2026";
+        Fin_Mientras
+        Admin.Dese[I].FechaD.Year = Year;
+
+        Mostrar << "Seleccione el nombre del Proveedor";
+        Mostrar << "1: Elecentro Health";
+        Mostrar << "2: HollowCare Medical";
+        Mostrar << "3: Six Seven Medicine";
+        Mostrar << "4: RangerMed Solutions";
+        Mostrar << "5: Niggros Supplies";
+        Mostrar << "6: Kavaleiros Med";
+        Mostrar << "7: WolfSuture Disposables";
+        Mostrar << "8: Olympus BioSupply";
+        Mostrar << "9: Nexus Medical Devices";
+        Mostrar << "10: E-404 Sanitation";
+        Mostrar << "11: Jabra Health Solutions";
+        Mostrar << "12: Otro";
+        Leer >> OpcB;
+        Mientras (OpcB < 1 And OpcB > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> OpcB;
+        Fin_Mientras
+
+        En_Caso (OpcB > 0) Sea;
+            Caso(OpcB = 1);
+                Admin.Dese[I].Proveedor = "Electro Health";
+            Caso(OpcB = 2);
+                Admin.Dese[I].Proveedor = "HollowCare Medical";
+            Caso(OpcB = 3);
+                Admin.Dese[I].Proveedor = "Six Seven Medicine";
+            Caso(OpcB = 4);
+                Admin.Dese[I].Proveedor = "RangerMed Solutions";
+            Caso(OpcB = 5);
+                Admin.Dese[I].Proveedor = "Niggros Supplies";
+            Caso(OpcB = 6);
+                Admin.Dese[I].Proveedor = "Kavaleiros Med";
+            Caso(OpcB = 7);
+                Admin.Dese[I].Proveedor = "WolfSuture Disposables";
+            Caso(OpcB = 8);
+                Admin.Dese[I].Proveedor = "Olympus BioSupply";
+            Caso(OpcB = 9);
+                Admin.Dese[I].Proveedor = "Nexus Medical Devices";
+            Caso(OpcB = 10);
+                Admin.Dese[I].Proveedor = "E-404 Sanitation";
+            Caso(OpcB = 11);
+                Admin.Dese[I].Proveedor = "Jabra Health Solutions";
+            Otro_Caso
+                Mostrar << "Ingrese nombre del Proveedor";
+                Leer >> Admin.Dese[I].Proveedor;
+        Fin_Caso
+    Fin_Para
+
+Fin_Procedimiento
