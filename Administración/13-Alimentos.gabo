@@ -1,4 +1,4 @@
-Procedimiento Ingrediente (E/S: Admin.Alim[NM].Nombre, Admin.Alim[NM].Medida, Admin.Alim[I].Tipo_Dieta, Admin.Alim[NM].Proveedor: Cadena, NM, Admin.Alim[I].ID, Admin.Alim[I].Cantidad, Admin.Alim[I].FechaA.Dia, Admin.Alim[I].FechaA.Mes, Admin.Alim[I].FechaA.Year: Entero);
+Procedimiento Alimento (E/S: Admin.Alim[NA].Nombre, Admin.Alim[NA].Medida, Admin.Alim[NA].Tipo_Dieta, Admin.Alim[NA].Proveedor: Cadena, NM, Admin.Alim[NA].ID, Admin.Alim[NA].Cantidad, Admin.Alim[NA].FechaA.Dia, Admin.Alim[NA].FechaA.Mes, Admin.Alim[NA].FechaA.Year: Entero);
 Inicio
     Var I, Opc, ID, Cant, OpcM, Dia, Mes, Year, OpcD, OpcB: Entero;
 
@@ -16,13 +16,13 @@ Inicio
     Mostrar << "⠀⠀⠀⠀⠀⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
 
     Mostrar << "Ingrese la cantidad de ingredientes a registrar";
-    Leer >> NM;
-    Mientras (NM < 2 Or NM > 500) Hacer;
+    Leer >> NA;
+    Mientras (NA < 2 Or NA > 500) Hacer;
         Mostrar << "Solo valores entre 2-500";
-        Leer >> NM;
+        Leer >> NA;
     Fin_Mientras
 
-    Para (I = 1 Hasta I = NM) Hacer;
+    Para (I = 1 Hasta I = NA) Hacer;
         Mostrar << "Seleccione el Ingrediente";
         Mostrar << "1: Harina de Trigo";
         Mostrar << "2: Arroz Grano Largo";
@@ -110,6 +110,7 @@ Inicio
         Leer >> Dia;
         Mientras (Dia < 1 Or Dia > 31) Hacer;
             Mostrar << "Solo valores entre 1-31";
+            Leer >> Dia;
         Fin_Mientras
         Admin.Alim[I].FechaA.Dia = Dia;
 
@@ -117,6 +118,7 @@ Inicio
         Leer >> Mes;
         Mientras (Mes < 1 Or Mes > 12) Hacer;
             Mostrar << "Solo valores entre 1-12";
+            Leer >> Mes;
         Fin_Mientras
         Admin.Alim[I].FechaA.Mes = Mes;
 
@@ -124,6 +126,7 @@ Inicio
         Leer >> Year;
         Mientras (Year < 2026) Hacer;
             Mostrar << "Solo valores mayores a 2026";
+            Leer >> Year;
         Fin_Mientras
         Admin.Alim[I].FechaA.Year = Year;
 

@@ -1,0 +1,154 @@
+Procedimiento Sangre (E/S: Admin.Sang[NS].Producto, Admin.Sangre[NS].Grupo: Cadena, NS, Admin.Sang[NS].ID, Admin.Sang[NS].Cantidad, Admin.Sang[NS].FechaEX.Dia, Admin.Sang[NS].FechaEX.Mes, Admin.Sang[NS].FechaEX.Year, Admin.Sang[NS].FechaS.Dia, Admin.Sang[NS].FechaS.Mes, Admin.Sang[NS].FechaS.Year: Entero);
+Inicio
+    Var I, Opc, ID, OpcS, Cant, DiaEX, MesEX, YearEX, Dia, Mes, Year: Entero;
+
+    Mostrar << "Bienvenido al registro de Sangre";
+    Mostrar << "⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠸⣿⣦⡀⠀⠀⠀⠀⢀⡼⠃⢀⢀⡄⠀";
+    Mostrar << "⠀⠀⠀⠀⢸⣿⣿⣷⡶⠢⢴⡿⠁⣀⡼⠾⠗⠀";
+    Mostrar << "⠀⠀⠀⠀⣼⣽⣿⣿⣧⣶⣿⣿⣿⣧⡀⠀⠀⠀";
+    Mostrar << "⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⢀";
+    Mostrar << "⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣟⣿⣿⣿⣿⣿⣿⡍";
+    Mostrar << "⢀⣿⣿⣿⣿⣿⣿⣻⣿⡿⡿⣻⣿⡿⣃⠙⠿⠁";
+    Mostrar << "⢸⣿⢿⣿⣿⢿⢿⣿⣿⣸⣷⡿⢿⣿⡾⡇⠀⠀";
+    Mostrar << "⢸⣯⡿⡿⡁⣨⣽⣏⣡⣴⡪⠤⣸⡇⠈⠿⠀⠠";
+    Mostrar << "⠀⡎⣥⣷⣯⣿⠉⡟⠻⠿⣷⣦⣿⢸⡄⠘⠀⠀";
+    Mostrar << "⠀⠹⣿⣿⣿⣿⣠⣣⠻⣴⣿⣿⣿⣿⡞⠄⠀⠀";
+    Mostrar << "⠀⠀⠙⢿⣿⣿⡿⡿⣼⣿⣿⣿⣿⣿⡏⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠙⢿⣯⣠⣿⣿⣿⣿⣿⣿⠁⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠋⠁⠀⠀⠀⠀⠀";
+
+    Mostrar << "Ingrese la cantidad de bolsas de sangre a registrar";
+    Leer >> NS;
+    Mientras (NS < 2 Or NS > 500) Hacer;
+        Mostrar << "Solo valores entre 2-500";
+        Leer >> NS;
+    Fin_Mientras
+
+    Para (I = 1 Hasta I = NS) Hacer;
+        Mostrar << "Seleccione el Producto Sanguineo";
+        Mostrar << "1: Glóbulos Rojos Concentrados";
+        Mostrar << "2: Plasma Fresco Congelado";
+        Mostrar << "3: Concentrado de Plaquetas";
+        Mostrar << "4: Sangre Total";
+        Mostrar << "5: Crioprecipitado";
+        Leer >> Opc;
+        Mientras (Opc < 1 Or Opc > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> Opc;
+        Fin_Mientras
+
+        En_Caso (Opc > 0) Sea;
+            Caso(Opc = 1);
+                Admin.Sang[I].Producto = "Glóbulos Rojos Concentrados";
+            Caso(Opc = 2);
+                Admin.Sang[I].Producto = "Plasma Fresco Congelado";
+            Caso(Opc = 3);
+                Admin.Sang[I].Producto = "Concentrado de Plaquetas";
+            Caso(Opc = 4);
+                Admin.Sang[I].Producto = "Sangre Total";
+            Otro_Caso
+                Admin.Sang[I].Producto = "Crioprecipitado";
+        Fin_Caso
+
+        Mostrar << "Ingrese la ID de la bolsa de Sangre";
+        Leer >> ID;
+        Mientras (ID < 1) Hacer;
+            Mostrar << "Solo valores positivos";
+            Leer >> ID;
+        Fin_Mientras
+        Admin.Sang[I].ID = ID;
+
+        Mostrar << "Seleccione el Grupo Sanguíneo";
+        Mostrar << "1: A+";
+        Mostrar << "2: A-";
+        Mostrar << "3: B+";
+        Mostrar << "4: B-";
+        Mostrar << "5: AB+";
+        Mostrar << "6: AB-";
+        Mostrar << "7: O+";
+        Mostrar << "8: O-";
+        Leer(OpcS);
+        Mientras (OpcS < 1 Or OpcS > 8) Hacer;
+            Mostrar << "Solo valores entre 1-8";
+            Leer >> OpcS;
+        Fin_Mientras
+
+        En_Caso (OpcS > 0) Sea;
+            Caso(OpcS = 1);
+                Admin.Sangre[I].Grupo = "A+";
+            Caso(OpcS = 2);
+                Admin.Sangre[I].Grupo = "A-";
+            Caso(OpcS = 3);
+                Admin.Sangre[I].Grupo = "B+";
+            Caso(OpcS = 4);
+                Admin.Sangre[I].Grupo = "B-";
+            Caso(OpcS = 5);
+                Admin.Sangre[I].Grupo = "AB+";
+            Caso(OpcS = 6);
+                Admin.Sangre[I].Grupo = "AB-";
+            Caso(OpcS = 7);
+                Admin.Sangre[I].Grupo = "O+";
+            Otro_Caso
+                Admin.Sangre[I].Grupo = "O-";
+        Fin_En_Caso
+
+        Mostrar << "Ingrese las cantidades de las bolsas de Sangre";
+        Leer >> Cant;
+        Mientras (Cant < 0) Hacer;
+            Mostrar << "Solo valores mayores a 0";
+            Leer >> Cant;
+        Fin_Mientras
+        Admin.Sang[I].Cantidad = Cant;
+
+        Mostrar << "Ingrese dia de extraccion";
+        Leer >> DiaEX;
+        Mientras (DiaEX < 1 Or DiaEX > 31) Hacer;
+            Mostrar << "Solo valores entre 1-31";
+            Leer >> DiaEX;
+        Fin_Mientras
+        Admin.Sang[I].FechaEX.Dia = DiaEX;
+
+        Mostrar << "Ingrese mes de extraccion";
+        Leer >> MesEX;
+        Mientras (MesEX < 1 Or MesEX > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> MesEX;
+        Fin_Mientras
+        Admin.Sang[I].FechaEX.Mes = MesEX;
+
+        Mostrar << "Ingrese Año de extraccion";
+        Leer >> YearEX;
+        Mientras (YearEX < 2026) Hacer;
+            Mostrar << "Solo valores mayores a 2026";
+            Leer >> YearEX;
+        Fin_Mientras
+        Admin.Sang[I].FechaEX.Year = YearEX;
+
+        Mostrar << "Ingrese dia de caducidad";
+        Leer >> Dia;
+        Mientras (Dia < 1 Or Dia > 31) Hacer;
+            Mostrar << "Solo valores entre 1-31";
+            Leer >> Dia;
+        Fin_Mientras
+        Admin.Sang[I].FechaS.Dia = Dia;
+
+        Mostrar << "Ingrese mes de caducidad";
+        Leer >> Mes;
+        Mientras (Mes < 1 Or Mes > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> Mes;
+        Fin_Mientras
+        Admin.Sang[I].FechaS.Mes = Mes;
+
+        Mostrar << "Ingrese Año de caducidad";
+        Leer >> Year;
+        Mientras (Year < 2026) Hacer;
+            Mostrar << "Solo valores mayores a 2026";
+            Leer >> Year;
+        Fin_Mientras
+        Admin.Sang[I].FechaS.Year = Year;
+    Fin_Para
+
+Fin_Procedimiento

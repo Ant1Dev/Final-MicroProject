@@ -1,4 +1,4 @@
-Procedimiento Farmaco (E/S: Admin.Farm[I].Nombre, Admin.Farm[I].Medida, Admin.Farm[I].Proveedor, Admin.Farm[I].Presentacion, Admin.Farm[I].Concentracion, Admin.Farm[I].Temperatura: Cadena, NF, Admin.Farm[I].ID, Admin.Farm[I].Cantidad, Admin.Farm[I].FechaF.Dia, Admin.Farm[I].FechaF.Mes, Admin.Farm[I].FechaF.Year: Entero);
+Procedimiento Farmaco (E/S: Admin.Farm[NF].Nombre, Admin.Farm[NF].Medida, Admin.Farm[NF].Proveedor, Admin.Farm[NF].Presentacion, Admin.Farm[NF].Concentracion, Admin.Farm[NF].Temperatura: Cadena, NF, Admin.Farm[NF].ID, Admin.Farm[NF].Cantidad, Admin.Farm[NF].FechaF.Dia, Admin.Farm[NF].FechaF.Mes, Admin.Farm[NF].FechaF.Year: Entero);
 Inicio
     Var I, Opc, ID, Cant, OpcP, OpcC, OpcT, OpcM, Dia, Mes, Year, OpcB: Entero;
 
@@ -232,6 +232,7 @@ Inicio
         Leer >> Dia;
         Mientras (Dia < 1 Or Dia > 31) Hacer;
             Mostrar << "Solo valores entre 1-31";
+            Leer >> Dia;
         Fin_Mientras
         Admin.Farm[I].FechaF.Dia = Dia;
 
@@ -239,6 +240,7 @@ Inicio
         Leer >> Mes;
         Mientras (Mes < 1 Or Mes > 12) Hacer;
             Mostrar << "Solo valores entre 1-12";
+            Leer >> Mes;
         Fin_Mientras
         Admin.Farm[I].FechaF.Mes = Mes;
 
@@ -246,6 +248,7 @@ Inicio
         Leer >> Year;
         Mientras (Year < 2026) Hacer;
             Mostrar << "Solo valores mayores a 2026";
+            Leer >> Year;
         Fin_Mientras
         Admin.Farm[I].FechaF.Year = Year;
 

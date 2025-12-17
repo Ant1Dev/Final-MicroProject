@@ -1,0 +1,13 @@
+    //Registros
+    var Administracion: Admin
+    var Desechables: Dese[ND], Fecha_Caducidad_D: FechaD;
+    var Instrumental: Inst[NI], Fecha_E: FechaE;
+    var Farmacos: Farm[NF], Fecha_Caducidad_F: FechaF;
+    var Sangre: Sang[NS], Fecha_Extraccion: FechaEX, Fecha_Vencimiento_S: FechaS;
+    var Gases: Gas[NG];
+    var Anestesias: Anes[NF], Fecha_Caducidad_AN: FechaAN;
+    var Movilidad: Movil[NM], Fecha_Mantenimiento: FechaM;
+
+    //Variables globales
+    Categ, Modif, Enc, NM, ND, NI, NF, NS: Entero;
+Fin

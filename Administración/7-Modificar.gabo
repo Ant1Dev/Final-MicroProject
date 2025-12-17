@@ -1,0 +1,509 @@
+Procedimiento Modificar (E/S: Categ, Modif, Enc, Admin.Dese[Enc].ID, Admin.Dese[Enc].Cantidad, Admin.Dese[Enc].Dia, Admin.Dese[Enc].Mes, Admin.Dese[Enc].Year, Admin.Inst[Enc].ID, Admin.Inst[Enc].Cantidad, Admin.Inst[Enc].Dia, Admin.Inst[Enc].Mes, Admin.Inst[Enc].Year, Admin.Farm[Enc].ID, Admin.Farm[Enc].Cantidad, Admin.Farm[Enc].Dia, Admin.Farm[Enc].Mes, Admin.Farm[Enc].Year, Admin.Alim[Enc].ID, Admin.Alim[Enc].Cantidad, Admin.Alim[Enc].Dia, Admin.Alim[Enc].Mes, Admin.Alim[Enc].Year, Admin.Sang[Enc].ID, Admin.Sang[Enc].Cantidad, Admin.Sang[Enc].Dia, Admin.Sang[Enc].Mes, Admin.Sang[Enc].Year, Admin.Gas[Enc].ID, Admin.Gas[Enc].Cantidad, Admin.Gas[Enc].PresionMin, Admin.Anes[Enc].ID, Admin.Anes[Enc].Cantidad, Admin.Anes[Enc].Dia, Admin.Anes[Enc].Mes, Admin.Anes[Enc].Year, Admin.Movil[Enc].ID, Admin.Movil[Enc].Cantidad, Admin.Movil[Enc].Dia, Admin.Movil[Enc].Mes, Admin.Movil[Enc].Year: Entero, Admin.Dese[Enc].Nombre, Admin.Dese[Enc].Medida, Admin.Dese[Enc].Proveedor, Admin.Inst[Enc].Nombre, Admin.Inst[Enc].Medida, Admin.Inst[Enc].Proveedor, Admin.Farm[Enc].Nombre, Admin.Farm[Enc].Medida, Admin.Farm[Enc].Presentacion, Admin.Farm[Enc].Concentracion, Admin.Farm[Enc].Temperatura, Admin.Farm[Enc].Proveedor, Admin.Alim[Enc].Nombre, Admin.Alim[Enc].Medida, Admin.Alim[Enc].Tipo_Dieta, Admin.Alim[Enc].Proveedor, Admin.Sang[Enc].Producto, Admin.Sang[Enc].Grupo, Admin.Gas[Enc].Tipo, Admin.Gas[Enc].Medida, Admin.Gas[Enc].Proveedor, Admin.Anes[Enc].Tipo, Admin.Anes[Enc].Medida, Admin.Anes[Enc].Presentacion, Admin.Anes[Enc].Concentracion, Admin.Anes[Enc].Proveedor, Admin.Movil[Enc].Nombre, Admin.Movil[Enc].Estado, Admin.Movil[Enc].Proveedor: Cadena);
+Inicio
+    var ID, Cant, Dia, Mes, Year;
+
+    En En_Caso (Categ = 1) Sea;
+        Caso(Modif = 1);
+            Admin.Dese[Enc].Nombre = Null; 
+            Mostrar << "Ingrese un nuevo Nombre";
+            Leer >> Admin.Dese[Enc].Nombre;
+        Caso(Modif = 2);
+            Admin.Dese[Enc].ID = Null; 
+            Mostrar << "Ingrese un nuevo ID";
+            Leer >> ID;
+            Mientras (ID < 1) Hacer;
+                Mostrar << "Solo valores positivos";
+                Leer >> ID;
+            Fin_Mientras
+            Admin.Dese[Enc].ID = ID;
+        Caso(Modif = 3);
+            Admin.Dese[Enc].Cantidad = Null; 
+            Mostrar << "Ingrese una nueva Cantidad";
+            Leer >> Cant;
+            Mientras (Cant < 0) Hacer;
+                Mostrar << "Solo valores mayores a 0";
+                Leer >> Cant;
+            Fin_Mientras
+            Admin.Dese[Enc].Cantidad = Cant;
+        Caso(Modif = 4);
+            Admin.Dese[Enc].Medida = Null; 
+            Mostrar << "Ingrese una nueva Medida";
+            Leer >> Admin.Dese[Enc].Medida;
+        Caso(Modif = 5);
+            Admin.Dese[Enc].Dia = Null; 
+            Mostrar << "Ingrese un nuevo Dia de Desecho";
+            Leer >> Dia;
+            Mientras (Dia < 1 Or Dia > 31) Hacer;
+                Mostrar << "Solo valores entre 1-31";
+                Leer >> Dia;
+            Fin_Mientras
+            Admin.Dese[Enc].Dia = Dia;
+        Caso(Modif = 6);
+            Admin.Dese[Enc].Mes = Null; 
+            Mostrar << "Ingrese un nuevo Mes de Desecho";
+            Leer >> Mes;
+            Mientras (Mes < 1 Or Mes > 12) Hacer;
+                Mostrar << "Solo valores entre 1-12";
+                Leer >> Mes;
+            Fin_Mientras
+            Admin.Dese[Enc].Mes = Mes;
+        Caso(Modif = 7);
+            Admin.Dese[Enc].Year = Null; 
+            Mostrar << "Ingrese un nuevo Año de Desecho";
+            Leer >> Year;
+            Mientras (Year < 2026) Hacer;
+                Mostrar << "Solo valores mayores a 2026";
+                Leer >> Year;
+            Fin_Mientras
+            Admin.Dese[Enc].Year = Year;
+        Otro_Caso
+            Admin.Dese[Enc].Proveedor = Null; 
+            Mostrar << "Ingrese un nuevo Proveedor";
+            Leer >> Admin.Dese[Enc].Proveedor;
+    Fin_Caso
+
+    En En_Caso (Categ = 2) Sea;
+        Caso(Modif = 1);
+            Admin.Inst[Enc].Nombre = Null; 
+            Mostrar << "Ingrese un nuevo Nombre";
+            Leer >> Admin.Inst[Enc].Nombre;
+        Caso(Modif = 2);
+            Admin.Inst[Enc].ID = Null; 
+            Mostrar << "Ingrese un nuevo ID";
+            Leer >> ID;
+            Mientras (ID < 1) Hacer;
+                Mostrar << "Solo valores positivos";
+                Leer >> ID;
+            Fin_Mientras
+            Admin.Inst[Enc].ID = ID;
+        Caso(Modif = 3);
+            Admin.Inst[Enc].Cantidad = Null; 
+            Mostrar << "Ingrese una nueva Cantidad";
+            Leer >> Cant;
+            Mientras (Cant < 0) Hacer;
+                Mostrar << "Solo valores mayores a 0";
+                Leer >> Cant;
+            Fin_Mientras
+            Admin.Inst[Enc].Cantidad = Cant;
+        Caso(Modif = 4);
+            Admin.Inst[Enc].Medida = Null; 
+            Mostrar << "Ingrese una nueva Medida";
+            Leer >> Admin.Inst[Enc].Medida;
+        Caso(Modif = 5);
+            Admin.Inst[Enc].Dia = Null; 
+            Mostrar << "Ingrese un nuevo Dia de Esterilización";
+            Leer >> Dia;
+            Mientras (Dia < 1 Or Dia > 31) Hacer;
+                Mostrar << "Solo valores entre 1-31";
+                Leer >> Dia;
+            Fin_Mientras
+            Admin.Inst[Enc].Dia = Dia;
+        Caso(Modif = 6);
+            Admin.Inst[Enc].Mes = Null; 
+            Mostrar << "Ingrese un nuevo Mes de Esterilización";
+            Leer >> Mes;
+            Mientras (Mes < 1 Or Mes > 12) Hacer;
+                Mostrar << "Solo valores entre 1-12";
+                Leer >> Mes;
+            Fin_Mientras
+            Admin.Inst[Enc].Mes = Mes;
+        Caso(Modif = 7);
+            Admin.Inst[Enc].Year = Null; 
+            Mostrar << "Ingrese un nuevo Año de Esterilización";
+            Leer >> Year;
+            Mientras (Year < 2026) Hacer;
+                Mostrar << "Solo valores mayores a 2026";
+                Leer >> Year;
+            Fin_Mientras
+            Admin.Inst[Enc].Year = Year;
+        Otro_Caso
+            Admin.Inst[Enc].Proveedor = Null; 
+            Mostrar << "Ingrese un nuevo Proveedor";
+            Leer >> Admin.Inst[Enc].Proveedor;
+    Fin_Caso
+    
+    En En_Caso (Categ = 3) Sea;
+        Caso(Modif = 1);
+            Admin.Farm[Enc].Nombre = Null; 
+            Mostrar << "Ingrese un nuevo Nombre";
+            Leer >> Admin.Farm[Enc].Nombre;
+        Caso(Modif = 2);
+            Admin.Farm[Enc].ID = Null; 
+            Mostrar << "Ingrese un nuevo ID";
+            Leer >> ID;
+            Mientras (ID < 1) Hacer;
+                Mostrar << "Solo valores positivos";
+                Leer >> ID;
+            Fin_Mientras
+            Admin.Farm[Enc].ID = ID;
+        Caso(Modif = 3);
+            Admin.Farm[Enc].Cantidad = Null; 
+            Mostrar << "Ingrese una nueva Cantidad";
+            Leer >> Cant;
+            Mientras (Cant < 0) Hacer;
+                Mostrar << "Solo valores mayores a 0";
+                Leer >> Cant;
+            Fin_Mientras
+            Admin.Farm[Enc].Cantidad = Cant;
+        Caso(Modif = 4);
+            Admin.Farm[Enc].Medida = Null; 
+            Mostrar << "Ingrese una nueva Medida";
+            Leer >> Admin.Farm[Enc].Medida;
+        Caso(Modif = 5);
+            Admin.Farm[Enc].Presentacion = Null; 
+            Mostrar << "Ingrese una nueva Presentación";
+            Leer >> Admin.Farm[Enc].Presentacion;
+        Caso(Modif = 6);
+            Admin.Farm[Enc].Concentracion = Null; 
+            Mostrar << "Ingrese una nueva Concentración";
+            Leer >> Admin.Farm[Enc].Concentracion;
+        Caso(Modif = 7);
+            Admin.Farm[Enc].Temperatura = Null; 
+            Mostrar << "Ingrese una nueva Temperatura de Almacenamiento";
+            Leer >> Admin.Farm[Enc].Temperatura;
+        Caso(Modif = 8);
+            Admin.Farm[Enc].Dia = Null; 
+            Mostrar << "Ingrese un nuevo Dia de Vencimiento";
+            Leer >> Dia;
+            Mientras (Dia < 1 Or Dia > 31) Hacer;
+                Mostrar << "Solo valores entre 1-31";
+                Leer >> Dia;
+            Fin_Mientras
+            Admin.Farm[Enc].Dia = Dia;
+        Caso(Modif = 9);
+            Admin.Farm[Enc].Mes = Null; 
+            Mostrar << "Ingrese un nuevo Mes de Vencimiento";
+            Leer >> Mes;
+            Mientras (Mes < 1 Or Mes > 12) Hacer;
+                Mostrar << "Solo valores entre 1-12";
+                Leer >> Mes;
+            Fin_Mientras
+            Admin.Farm[Enc].Mes = Mes;
+        Caso(Modif = 10);
+            Admin.Farm[Enc].Year = Null; 
+            Mostrar << "Ingrese un nuevo Año de Vencimiento";
+            Leer >> Year;
+            Mientras (Year < 2026) Hacer;
+                Mostrar << "Solo valores mayores a 2026";
+                Leer >> Year;
+            Fin_Mientras
+            Admin.Farm[Enc].Year = Year;
+        Otro_Caso
+            Admin.Farm[Enc].Proveedor = Null; 
+            Mostrar << "Ingrese un nuevo Proveedor";
+            Leer >> Admin.Farm[Enc].Proveedor;
+    Fin_Caso
+
+    En En_Caso (Categ = 4) Sea;
+        Caso(Modif = 1);
+            Admin.Alim[Enc].Nombre = Null; 
+            Mostrar << "Ingrese un nuevo Nombre";
+            Leer >> Admin.Alim[Enc].Nombre;
+        Caso(Modif = 2);
+            Admin.Alim[Enc].ID = Null; 
+            Mostrar << "Ingrese un nuevo ID";
+            Leer >> ID;
+            Mientras (ID < 1) Hacer;
+                Mostrar << "Solo valores positivos";
+                Leer >> ID;
+            Fin_Mientras
+            Admin.Alim[Enc].ID = ID;
+        Caso(Modif = 3);
+            Admin.Alim[Enc].Cantidad = Null; 
+            Mostrar << "Ingrese una nueva Cantidad";
+            Leer >> Cant;
+            Mientras (Cant < 0) Hacer;
+                Mostrar << "Solo valores mayores a 0";
+                Leer >> Cant;
+            Fin_Mientras
+            Admin.Alim[Enc].Cantidad = Cant;
+        Caso(Modif = 4);
+            Admin.Alim[Enc].Medida = Null; 
+            Mostrar << "Ingrese una nueva Medida";
+            Leer >> Admin.Alim[Enc].Medida;
+        Caso(Modif = 5);
+            Admin.Alim[Enc].Tipo_Dieta = Null; 
+            Mostrar << "Ingrese un nuevo Tipo de Dieta";
+            Leer >> Admin.Alim[Enc].Tipo_Dieta;
+        Caso(Modif = 6);
+            Admin.Alim[Enc].Dia = Null; 
+            Mostrar << "Ingrese un nuevo Dia de Vencimiento";
+            Leer >> Dia;
+            Mientras (Dia < 1 Or Dia > 31) Hacer;
+                Mostrar << "Solo valores entre 1-31";
+                Leer >> Dia;
+            Fin_Mientras
+            Admin.Alim[Enc].Dia = Dia;
+        Caso(Modif = 7);
+            Admin.Alim[Enc].Mes = Null; 
+            Mostrar << "Ingrese un nuevo Mes de Vencimiento";
+            Leer >> Mes;
+            Mientras (Mes < 1 Or Mes > 12) Hacer;
+                Mostrar << "Solo valores entre 1-12";
+                Leer >> Mes;
+            Fin_Mientras
+            Admin.Alim[Enc].Mes = Mes;
+        Caso(Modif = 8);
+            Admin.Alim[Enc].Year = Null; 
+            Mostrar << "Ingrese un nuevo Año de Vencimiento";
+            Leer >> Year;
+            Mientras (Year < 2026) Hacer;
+                Mostrar << "Solo valores mayores a 2026";
+                Leer >> Year;
+            Fin_Mientras
+            Admin.Alim[Enc].Year = Year;
+        Otro_Caso
+            Admin.Alim[Enc].Proveedor = Null; 
+            Mostrar << "Ingrese un nuevo Proveedor";
+            Leer >> Admin.Alim[Enc].Proveedor;
+    Fin_Caso
+
+    En En_Caso (Categ = 5) Sea;
+        Caso(Modif = 1);
+            Admin.Sang[Enc].Producto = Null; 
+            Mostrar << "Ingrese un nuevo Producto";
+            Leer >> Admin.Sang[Enc].Producto;
+        Caso(Modif = 2);
+            Admin.Sang[Enc].ID = Null; 
+            Mostrar << "Ingrese un nuevo ID";
+            Leer >> ID;
+            Mientras (ID < 1) Hacer;
+                Mostrar << "Solo valores positivos";
+                Leer >> ID;
+            Fin_Mientras
+            Admin.Sang[Enc].ID = ID;
+        Caso(Modif = 3);
+            Admin.Sang[Enc].Cantidad = Null; 
+            Mostrar << "Ingrese una nueva Cantidad";
+            Leer >> Cant;
+            Mientras (Cant < 0) Hacer;
+                Mostrar << "Solo valores mayores a 0";
+                Leer >> Cant;
+            Fin_Mientras
+            Admin.Sang[Enc].Cantidad = Cant;
+        Caso(Modif = 4);
+            Admin.Sang[Enc].Grupo = Null; 
+            Mostrar << "Ingrese un nuevo Grupo Sanguíneo";
+            Leer >> Admin.Sang[Enc].Grupo;
+        Caso(Modif = 5);
+            Admin.Sang[Enc].Dia = Null; 
+            Mostrar << "Ingrese un nuevo Dia de Extracción";
+            Leer >> Dia;
+            Mientras (Dia < 1 Or Dia > 31) Hacer;
+                Mostrar << "Solo valores entre 1-31";
+                Leer >> Dia;
+            Fin_Mientras
+            Admin.Sang[Enc].Dia = Dia;
+        Caso(Modif = 6);
+            Admin.Sang[Enc].Mes = Null; 
+            Mostrar << "Ingrese un nuevo Mes de Extracción";
+            Leer >> Mes;
+            Mientras (Mes < 1 Or Mes > 12) Hacer;
+                Mostrar << "Solo valores entre 1-12";
+                Leer >> Mes;
+            Fin_Mientras
+            Admin.Sang[Enc].Mes = Mes;
+        Caso(Modif = 7);
+            Admin.Sang[Enc].Year = Null; 
+            Mostrar << "Ingrese un nuevo Año de Extracción";
+            Leer >> Year;
+            Mientras (Year < 2026) Hacer;
+                Mostrar << "Solo valores mayores a 2026";
+                Leer >> Year;
+            Fin_Mientras
+            Admin.Sang[Enc].Year = Year;
+        Caso(Modif = 8);
+            Admin.Sang[Enc].Dia = Null; 
+            Mostrar << "Ingrese un nuevo Dia de Caducidad";
+            Leer >> Dia;
+            Mientras (Dia < 1 Or Dia > 31) Hacer;
+                Mostrar << "Solo valores entre 1-31";
+                Leer >> Dia;
+            Fin_Mientras
+            Admin.Sang[Enc].Dia = Dia;
+        Caso(Modif = 9);
+            Admin.Sang[Enc].Mes = Null; 
+            Mostrar << "Ingrese un nuevo Mes de Caducidad";
+            Leer >> Mes;
+            Mientras (Mes < 1 Or Mes > 12) Hacer;
+                Mostrar << "Solo valores entre 1-12";
+                Leer >> Mes;
+            Fin_Mientras
+            Admin.Sang[Enc].Mes = Mes;
+        Caso(Modif = 10);
+            Admin.Sang[Enc].Year = Null; 
+            Mostrar << "Ingrese un nuevo Año de Caducidad";
+            Leer >> Year;
+            Mientras (Year < 2026) Hacer;
+                Mostrar << "Solo valores mayores a 2026";
+                Leer >> Year;
+            Fin_Mientras
+            Admin.Sang[Enc].Year = Year;
+    Fin_Caso
+
+    En En_Caso (Categ = 6) Sea;
+        Caso(Modif = 1);
+            Admin.Gas[Enc].Tipo = Null; 
+            Mostrar << "Ingrese un nuevo Tipo";
+            Leer >> Admin.Gas[Enc].Tipo;
+        Caso(Modif = 2);
+            Admin.Gas[Enc].ID = Null; 
+            Mostrar << "Ingrese un nuevo ID";
+            Leer >> ID;
+            Mientras (ID < 1) Hacer;
+                Mostrar << "Solo valores positivos";
+                Leer >> ID;
+            Fin_Mientras
+            Admin.Gas[Enc].ID = ID;
+        Caso(Modif = 3);
+            Admin.Gas[Enc].Cantidad = Null; 
+            Mostrar << "Ingrese una nueva Cantidad";
+            Leer >> Cant;
+            Mientras (Cant < 0) Hacer;
+                Mostrar << "Solo valores mayores a 0";
+                Leer >> Cant;
+            Fin_Mientras
+            Admin.Gas[Enc].Cantidad = Cant;
+        Caso(Modif = 4);
+            Admin.Gas[Enc].Medida = Null; 
+            Mostrar << "Ingrese una nueva Medida";
+            Leer >> Admin.Gas[Enc].Medida;
+        Caso(Modif = 5);
+            Admin.Gas[Enc].PresionMin = Null; 
+            Mostrar << "Ingrese una nueva Presión Mínima";
+            Leer >> Admin.Gas[Enc].PresionMin;
+        Otro_Caso
+            Admin.Gas[Enc].Proveedor = Null; 
+            Mostrar << "Ingrese un nuevo Proveedor";
+            Leer >> Admin.Gas[Enc].Proveedor;
+    Fin_Caso
+
+    En En_Caso (Categ = 7) Sea;
+        Caso(Modif = 1);
+            Admin.Anes[Enc].Tipo = Null; 
+            Mostrar << "Ingrese un nuevo Tipo";
+            Leer >> Admin.Anes[Enc].Tipo;
+        Caso(Modif = 2);
+            Admin.Anes[Enc].ID = Null; 
+            Mostrar << "Ingrese un nuevo ID";
+            Leer >> ID;
+            Mientras (ID < 1) Hacer;
+                Mostrar << "Solo valores positivos";
+                Leer >> ID;
+            Fin_Mientras
+            Admin.Anes[Enc].ID = ID;
+        Caso(Modif = 3);
+            Admin.Anes[Enc].Cantidad = Null; 
+            Mostrar << "Ingrese una nueva Cantidad";
+            Leer >> Cant;
+            Mientras (Cant < 0) Hacer;
+                Mostrar << "Solo valores mayores a 0";
+                Leer >> Cant;
+            Fin_Mientras
+            Admin.Anes[Enc].Cantidad = Cant;
+        Caso(Modif = 4);
+            Admin.Anes[Enc].Medida = Null; 
+            Mostrar << "Ingrese una nueva Medida";
+            Leer >> Admin.Anes[Enc].Medida;
+        Caso(Modif = 5);
+            Admin.Anes[Enc].Presentacion = Null; 
+            Mostrar << "Ingrese una nueva Presentación";
+            Leer >> Admin.Anes[Enc].Presentacion;
+        Caso(Modif = 6);
+            Admin.Anes[Enc].Concentracion = Null; 
+            Mostrar << "Ingrese una nueva Concentración";
+            Leer >> Admin.Anes[Enc].Concentracion;
+        Caso(Modif = 7);
+            Admin.Anes[Enc].Dia = Null; 
+            Mostrar << "Ingrese un nuevo Dia de Vencimiento";
+            Leer >> Dia;
+            Mientras (Dia < 1 Or Dia > 31) Hacer;
+                Mostrar << "Solo valores entre 1-31";
+                Leer >> Dia;
+            Fin_Mientras
+            Admin.Anes[Enc].Dia = Dia;
+        Caso(Modif = 8);
+            Admin.Anes[Enc].Mes = Null; 
+            Mostrar << "Ingrese un nuevo Mes de Vencimiento";
+            Leer >> Mes;
+            Mientras (Mes < 1 Or Mes > 12) Hacer;
+                Mostrar << "Solo valores entre 1-12";
+                Leer >> Mes;
+            Fin_Mientras
+            Admin.Anes[Enc].Mes = Mes;
+        Caso(Modif = 9);
+            Admin.Anes[Enc].Year = Null; 
+            Mostrar << "Ingrese un nuevo Año de Vencimiento";
+            Leer >> Year;
+            Mientras (Year < 2026) Hacer;
+                Mostrar << "Solo valores mayores a 2026";
+                Leer >> Year;
+            Fin_Mientras
+            Admin.Anes[Enc].Year = Year;
+        Otro_Caso
+            Admin.Anes[Enc].Proveedor = Null; 
+            Mostrar << "Ingrese un nuevo Proveedor";
+            Leer >> Admin.Anes[Enc].Proveedor;
+    Fin_Caso
+
+    En En_Caso (Categ = 8) Sea;
+        Caso(Modif = 1);
+            Admin.Movil[Enc].Nombre = Null; 
+            Mostrar << "Ingrese un nuevo Nombre";
+            Leer >> Admin.Movil[Enc].Nombre;
+        Caso(Modif = 2);
+            Admin.Movil[Enc].ID = Null; 
+            Mostrar << "Ingrese un nuevo ID";
+            Leer >> ID;
+            Mientras (ID < 1) Hacer;
+                Mostrar << "Solo valores positivos";
+                Leer >> ID;
+            Fin_Mientras
+            Admin.Movil[Enc].ID = ID;
+        Caso(Modif = 3);
+            Admin.Movil[Enc].Cantidad = Null; 
+            Mostrar << "Ingrese una nueva Cantidad";
+            Leer >> Cant;
+            Mientras (Cant < 0) Hacer;
+                Mostrar << "Solo valores mayores a 0";
+                Leer >> Cant;
+            Fin_Mientras
+            Admin.Movil[Enc].Cantidad = Cant;
+        Caso(Modif = 4);
+            Admin.Movil[Enc].Estado = Null; 
+            Mostrar << "Ingrese un nuevo Estado";
+            Leer >> Admin.Movil[Enc].Estado;
+        Caso(Modif = 5);
+            Admin.Movil[Enc].Dia = Null; 
+            Mostrar << "Ingrese un nuevo Dia de Mantenimiento";
+            Leer >> Dia;
+            Mientras (Dia < 1 Or Dia > 31) Hacer;
+                Mostrar << "Solo valores entre 1-31";
+                Leer >> Dia;
+            Fin_Mientras
+            Admin.Movil[Enc].Dia = Dia;
+        Caso(Modif = 6);
+            Admin.Movil[Enc].Mes = Null; 
+            Mostrar << "Ingrese un nuevo Mes de Mantenimiento";
+            Leer >> Mes;
+            Mientras (Mes < 1 Or Mes > 12) Hacer;
+                Mostrar << "Solo valores entre 1-12";
+                Leer >> Mes;
+            Fin_Mientras
+            Admin.Movil[Enc].Mes = Mes;
+        Caso(Modif = 7);
+            Admin.Movil[Enc].Year = Null; 
+            Mostrar << "Ingrese un nuevo Año de Mantenimiento";
+            Leer >> Year;
+            Mientras (Year < 2026) Hacer;
+                Mostrar << "Solo valores mayores a 2026";
+                Leer >> Year;
+            Fin_Mientras
+            Admin.Movil[Enc].Year = Year;
+        Otro_Caso
+            Admin.Movil[Enc].Proveedor = Null; 
+            Mostrar << "Ingrese un nuevo Proveedor";
+            Leer >> Admin.Movil[Enc].Proveedor;
+    Fin_Caso
+
+Fin_Procedimiento

@@ -1,0 +1,152 @@
+Procedimiento Gas (E/S: Admin.Gas[NG].Tipo, Admin.Gas[NG].Medida, Admin.Gas[NG].Proveedor: Cadena, NG, Admin.Gas[NG].ID, Admin.Gas[NG].Cantidad, Admin.Gas[NG].PresionMin: Entero);
+Inicio
+    Var I, Opc, ID, Cant, OpcM, OpcB: Entero;
+
+    Mostrar << "Bienvenido al registro de Gases Médicos";
+    Mostrar << "⠀⠀⠐⠒⠴⡀⡄⡠⠀⠠⠀⡀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠁⠁⠁⠂⢚⠰⠷⠃⢒⣐⡄⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣔⢴⡡⣅⢖⣊⣉⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠒⠎⠬⠌⡈⢀⠁⠈⠉⡉⠅⡭⠏⠊⠃⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠠⠯⠥⠍⠖⣛⠋⣚⣓⣿⣎⣉⢉⡽⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⣤⣔⡂⡈⣈⢉⠉⠉⢂⡶⠢⠯⣬⡍⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⢀⠀⠄⠠⠀⠀⠂⠀⢐⣀⣐⡳⠿⠽⠯⢗⡿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠛⠒⠂⠄⠄⠄⠄⠠⠀⠄⠍⡉⡁⢂⢤⢮⣥⣤⣤⣤⣤⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠋⠛⠁⢡⣥⡓⣋⣡⡤⠶⠛⠛⠀⡀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠒⠐⣒⡾⠝⠋⠁";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣔⣂⡁⠁⠁⢁⣀⡀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠒⠒⠒⠿⠽⠮⠗⠷⠽⡭⠭⠉⠉⠉⠉⠁⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣖⡊⣁⣁⣀⡄⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠤⠮⢥⡵⠂⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠷⠖⠉⠀⠀⠀⠀⠀⠀⠀";
+
+    Mostrar << "Ingrese la cantidad de gas a registrar";
+    Leer >> NG;
+    Mientras (NG < 2 Or NG > 500) Hacer;
+        Mostrar << "Solo valores entre 2-500";
+        Leer >> NG;
+    Fin_Mientras
+
+    Para (I = 1 Hasta I = NG) Hacer;
+        Mostrar << "Seleccione el tipo de Gas";
+        Mostrar << "1: Oxígeno";
+        Mostrar << "2: Óxido Nitroso";
+        Mostrar << "3: Aire Comprimido";
+        Mostrar << "4: Dióxido de Carbono";
+        Mostrar << "5: Nitrógeno";
+        Leer(Opc);
+
+        Mientras (Opc < 1 Or Opc > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> Opc;
+        Fin_Mientras
+
+        En_Caso (Opc > 0) Sea;
+            Caso(Opc = 1);
+                Admin.Gas[I].Tipo = "Oxígeno";
+            Caso(Opc = 2);
+                Admin.Gas[I].Tipo = "Óxido Nitroso";
+            Caso(Opc = 3);
+                Admin.Gas[I].Tipo = "Aire Comprimido";
+            Caso(Opc = 4);
+                Admin.Gas[I].Tipo = "Dióxido de Carbono";
+            Otro_Caso
+                Admin.Gas[I].Tipo = "Nitrógeno";
+        Fin_Caso
+
+        Mostrar << "Ingrese la ID del Gas";
+        Leer >> ID;
+        Mientras (ID < 1) Hacer;
+            Mostrar << "Solo valores positivos";
+            Leer >> ID;
+        Fin_Mientras
+        Admin.Gas[I].ID = ID;
+
+        Mostrar << "Ingrese las cantidades del Gas";
+        Leer >> Cant;
+        Mientras (Cant < 0) Hacer;
+            Mostrar << "Solo valores mayores a 0";
+            Leer >> Cant;
+        Fin_Mientras
+        Admin.Gas[I].Cantidad = Cant;
+
+        Mostrar << "Ingrese la medida del Gas";
+        Mostrar << "1: Cilindro";
+        Mostrar << "2: Litro Cúbico";
+        Mostrar << "3: Metro Cúbico";
+        Mostrar << "4: Presión";
+        Mostrar << "5: Litro";
+        Leer(OpcM);
+        Mientras (OpcM < 1 Or OpcM > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcM;
+        Fin_Mientras
+
+        En_Caso (OpcM > 0) Sea;
+            Caso(OpcM = 1);
+                Admin.Gas[I].Medida = "Cilindro";
+            Caso(OpcM = 2);
+                Admin.Gas[I].Medida = "Litro Cúbico";
+            Caso(OpcM = 3);
+                Admin.Gas[I].Medida = "Metro Cúbico";
+            Caso(OpcM = 4);
+                Admin.Gas[I].Medida = "Presión";
+            Otro_Caso
+                Admin.Gas[I].Medida = "Litro";
+        Fin_En_Caso
+
+        Mostrar << "Ingrese la Presión Minima del Gas";
+        Leer >> Pre;
+        Mientras (Pre < 0) Hacer;
+            Mostrar << "Solo valores mayores a 0";
+            Leer >> Pre;
+        Fin_Mientras
+        Admin.Gas[I].PresionMin = Pre;
+
+        Mostrar << "Seleccione el nombre del Proveedor";
+        Mostrar << "1: Elecentro Oxygen Systems";
+        Mostrar << "2: Hollow Cryogenic Gases";
+        Mostrar << "3: Six Seven Air Medical";
+        Mostrar << "4: Ranger Medical Gas";
+        Mostrar << "5: NigraPro Gas Solutions";
+        Mostrar << "6: Kavaleiros Pressure Supply";
+        Mostrar << "7: WolfPack PharmaGas";
+        Mostrar << "8: Olympus Gas Delivery";
+        Mostrar << "9: Nexus Industrial Air";
+        Mostrar << "10: E-404 Tank & Supply";
+        Mostrar << "11: Jabra Pure Gas Corp";
+        Mostrar << "12: Otro";
+        Leer >> OpcB;
+        Mientras (OpcB < 1 Or OpcB > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> OpcB;
+        Fin_Mientras
+
+        En_Caso (OpcB > 0) Sea;
+            Caso(OpcB = 1);
+                Admin.Gas[I].Proveedor = "Electro Oxygen Systems";
+            Caso(OpcB = 2);
+                Admin.Gas[I].Proveedor = "Hollow Cryogenic Gases";
+            Caso(OpcB = 3);
+                Admin.Gas[I].Proveedor = "SevenSix Air Medical";
+            Caso(OpcB = 4);
+                Admin.Gas[I].Proveedor = "Ranger Medical Gas";
+            Caso(OpcB = 5);
+                Admin.Gas[I].Proveedor = "NigraPro Gas Solutions";
+            Caso(OpcB = 6);
+                Admin.Gas[I].Proveedor = "Kavaleiros Pressure Supply";
+            Caso(OpcB = 7);
+                Admin.Gas[I].Proveedor = "WolfPack PharmaGas";
+            Caso(OpcB = 8);
+                Admin.Gas[I].Proveedor = "Olympus Gas Delivery";
+            Caso(OpcB = 9);
+                Admin.Gas[I].Proveedor = "Nexus Industrial Air";
+            Caso(OpcB = 10);
+                Admin.Gas[I].Proveedor = "E-404 Tank & Supply";
+            Caso(OpcB = 11);
+                Admin.Gas[I].Proveedor = "Jabra Pure Gas Corp";
+            Otro_Caso
+                Mostrar << "Ingrese el nombre del Proveedor";
+                Leer >> Admin.Gas[I].Proveedor;
+        Fin_Caso
+
+Fin_Procedimiento

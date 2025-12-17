@@ -1,4 +1,4 @@
-Procedimiento Intrumental (E/S: Admin.Inst[I].Nombre, Admin.Inst[I].Medida, Admin.Inst[I].Proveedor: Cadena, NI, Admin.Inst[I].ID, Admin.Inst[I].Cantidad, Admin.Inst[I].FechaE.Dia, Admin.Inst[I].FechaE.Mes, Admin.Inst[I].FechaE.Year: Entero);
+Procedimiento Intrumental (E/S: Admin.Inst[NI].Nombre, Admin.Inst[NI].Medida, Admin.Inst[NI].Proveedor: Cadena, NI, Admin.Inst[NI].ID, Admin.Inst[NI].Cantidad, Admin.Inst[NI].FechaE.Dia, Admin.Inst[NI].FechaE.Mes, Admin.Inst[NI].FechaE.Year: Entero);
 Inicio
     Var I, Opc, ID, Cant, OpcM, Dia, Mes, Year, OpcB: Entero;
 
@@ -114,6 +114,7 @@ Inicio
         Leer >> Dia;
         Mientras (Dia < 1 Or Dia > 31) Hacer;
             Mostrar << "Solo valores entre 1-31";
+            Leer >> Dia;
         Fin_Mientras
         Admin.Inst[I].FechaE.Dia = Dia;
 
@@ -121,6 +122,7 @@ Inicio
         Leer >> Mes;
         Mientras (Mes < 1 Or Mes > 12) Hacer;
             Mostrar << "Solo valores entre 1-12";
+            Leer >> Mes;
         Fin_Mientras
         Admin.Inst[I].FechaE.Mes = Mes;
 
@@ -128,6 +130,7 @@ Inicio
         Leer >> Year;
         Mientras (Year < 2026) Hacer;
             Mostrar << "Solo valores mayores a 2026";
+            Leer >> Year;
         Fin_Mientras
         Admin.Inst[I].FechaE.Year = Year;
 

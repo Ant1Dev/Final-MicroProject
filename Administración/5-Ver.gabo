@@ -1,0 +1,125 @@
+Procedimiento Ver ();
+Inicio
+    Var Opc: Entero;
+
+    Mostrar << "¿Que inventario desea ver?";
+    Mostrar << "1: Materiales Desechables";
+    Mostrar << "2: Materiales Instrumentales";
+    Mostrar << "3: Farmacos";
+    Mostrar << "4: Alimentos";
+    Mostrar << "5: Bolsas de Sangre";
+    Mostrar << "6: Gas";
+    Mostrar << "7: Anestesias";
+    Mostrar << "8: Aparatos de Movilidad";
+    Leer >> Opc;
+    Mientras (Opc < 1 Or Opc > 8) Hacer;
+        Mostrar << "Solo valores entre 1-8";
+        Leer Opc;
+    Fin_Mientras
+
+    En_Caso (Opc > 0) Sea;
+        Caso(Opc = 1);
+            Mostrar << "Desechables";
+            Para (I = 1 Hasta I = ND) Hacer;
+                Mostrar << "Nombre:...", Admin.Dese[I].Nombre;
+                Mostrar << "ID:...", Admin.Dese[I].ID;
+                Mostrar << "Cantidad:...", Admin.Dese[I].Cantidad;
+                Mostrar << "Medida:...", Admin.Dese[I].Medida;
+                Mostrar << "Dia de Desecho:...", Admin.Dese[I].FechaD.Dia;
+                Mostrar << "Mes de Desecho:...", Admin.Dese[I].FechaD.Mes;
+                Mostrar << "Año de Desecho:...", Admin.Dese[I].FechaD.Year;
+                Mostrar << "Proveedor:...", Admin.Dese[I].Proveedor;
+            Fin_Para
+        Caso(Opc = 2);
+            Mostrar << "Instrumentales";
+            Para (I = 1 Hasta I = NI) Hacer;
+                Mostrar << "Nombre:...", Admin.Inst[I].Nombre;
+                Mostrar << "ID:...", Admin.Inst[I].ID;
+                Mostrar << "Cantidad:...", Admin.Inst[I].Cantidad;
+                Mostrar << "Medida:...", Admin.Inst[I].Medida;
+                Mostrar << "Dia de Esterilización:...", Admin.Inst[I].FechaE.Dia;
+                Mostrar << "Mes de Esterilización:...", Admin.Inst[I].FechaE.Mes;
+                Mostrar << "Año de Esterilización:...", Admin.Inst[I].FechaE.Year;
+                Mostrar << "Proveedor:...", Admin.Inst[I].Proveedor;
+            Fin_Para
+        Caso(Opc = 3);
+            Mostrar << "Fármacos";
+            Para (I = 1 Hasta I = NF) Hacer;
+                Mostrar << "Nombre:...", Admin.Farm[I].Nombre;
+                Mostrar << "ID:...", Admin.Farm[I].ID;
+                Mostrar << "Cantidad:...", Admin.Farm[I].Cantidad;
+                Mostrar << "Medida:...", Admin.Farm[I].Medida;
+                Mostrar << "Presentación:...", Admin.Farm[I].Presentacion;
+                Mostrar << "Concentración:...", Admin.Farm[I].Concentracion;
+                Mostrar << "Temperatura de Almacenamiento:...", Admin.Farm[I].Temperatura;
+                Mostrar << "Dia de Vencimiento:...", Admin.Farm[I].FechaF.Dia;
+                Mostrar << "Mes de Vencimiento:...", Admin.Farm[I].FechaF.Mes;
+                Mostrar << "Año de Vencimiento:...", Admin.Farm[I].FechaF.Year;
+                Mostrar << "Proveedor:...", Admin.Farm[I].Proveedor;
+            Fin_Para
+        Caso(Opc = 4);
+            Mostrar << "Alimentos";
+            Para (I = 1 Hasta I = NA) Hacer;
+                Mostrar << "Nombre:...", Admin.Alim[I].Nombre;
+                Mostrar << "ID:...", Admin.Alim[I].ID;
+                Mostrar << "Cantidad:...", Admin.Alim[I].Cantidad;
+                Mostrar << "Medida:...", Admin.Alim[I].Medida;
+                Mostrar << "Tipo de Dieta:...", Admin.Alim[I].Tipo_Dieta;
+                Mostrar << "Dia de Vencimiento:...", Admin.Alim[I].FechaA.Dia;
+                Mostrar << "Mes de Vencimiento:...", Admin.Alim[I].FechaA.Mes;
+                Mostrar << "Año de Vencimiento:...", Admin.Alim[I].FechaA.Year;
+                Mostrar << "Proveedor:...", Admin.Alim[I].Proveedor;
+        Caso(Opc = 5);
+            Mostrar << "Bolsas de Sangre";
+            Para (I = 1 Hasta I = NS) Hacer;
+                Mostrar << "Producto:...", Admin.Sang[I].Producto;
+                Mostrar << "ID:...", Admin.Sang[I].ID;
+                Mostrar << "Cantidad:...", Admin.Sang[I].Cantidad;
+                Mostrar << "Grupo Sanguíneo:...", Admin.Sang[I].Grupo;
+                Mostrar << "Dia de Extracción:...", Admin.Sang[I].FechaEX.Dia;
+                Mostrar << "Mes de Extracción:...", Admin.Sang[I].FechaEX.Mes;
+                Mostrar << "Año de Extracción:...", Admin.Sang[I].FechaEX.Year;
+                Mostrar << "Dia de Salida:...", Admin.Sang[I].FechaS.Dia;
+                Mostrar << "Mes de Salida:...", Admin.Sang[I].FechaS.Mes;
+                Mostrar << "Año de Salida:...", Admin.Sang[I].FechaS.Year;
+                Mostrar << "Proveedor:...", Admin.Sang[I].Proveedor;
+            Fin_Para
+        Caso(Opc = 6);
+            Mostrar << "Gas";
+            Para (I = 1 Hasta I = NG) Hacer;
+                Mostrar << "Tipo:...", Admin.Gas[I].Tipo;
+                Mostrar << "ID:...", Admin.Gas[I].ID;
+                Mostrar << "Cantidad:...", Admin.Gas[I].Cantidad;
+                Mostrar << "Medida:...", Admin.Gas[I].Medida;
+                Mostrar << "Presión Mínima:...", Admin.Gas[I].PresionMin;
+                Mostrar << "Proveedor:...", Admin.Gas[I].Proveedor;
+            Fin_Para
+        Caso(Opc = 7);
+            Mostrar << "Anestesias";
+            Para (I = 1 Hasta I = NA) Hacer;
+                Mostrar << "Tipo:...", Admin.Anes[I].Tipo;
+                Mostrar << "ID:...", Admin.Anes[I].ID;
+                Mostrar << "Cantidad:...", Admin.Anes[I].Cantidad;
+                Mostrar << "Medida:...", Admin.Anes[I].Medida;
+                Mostrar << "Presentación:...", Admin.Anes[I].Presentacion;
+                Mostrar << "Concentración:...", Admin.Anes[I].Concentracion;
+                Mostrar << "Dia de Vencimiento:...", Admin.Anes[I].FechaAN.Dia;
+                Mostrar << "Mes de Vencimiento:...", Admin.Anes[I].FechaAN.Mes;
+                Mostrar << "Año de Vencimiento:...", Admin.Anes[I].FechaAN.Year;
+                Mostrar << "Proveedor:...", Admin.Anes[I].Proveedor;
+            Fin_Para
+        Otro_Caso
+            Mostrar << "Aparatos de Movilidad";
+            Para (I = 1 Hasta IM) Hacer;
+                Mostrar << "Nombre:...", Admin.Movil[I].Nombre;
+                Mostrar << "ID:...", Admin.Movil[I].ID;
+                Mostrar << "Cantidad:...", Admin.Movil[I].Cantidad;
+                Mostrar << "Estado:...", Admin.Movil[I].Estado;
+                Mostrar << "Dia de Mantenimiento:...", Admin.Movil[I].FechaM.Dia;
+                Mostrar << "Mes de Mantenimiento:...", Admin.Movil[I].FechaM.Mes;
+                Mostrar << "Año de Mantenimiento:...", Admin.Movil[I].FechaM.Year;
+                Mostrar << "Proveedor:...", Admin.Movil[I].Proveedor;
+            Fin_Para
+    Fin_Caso
+
+Fin_Procedimiento

@@ -1,4 +1,4 @@
-Procedimiento Desechable (E/S: Admin.Dese[ND].Nombre, Admin.Dese[ND].Medida, Admin.Dese[ND].Proveedor: Cadena, ND, Admin.Dese[I].ID, Admin.Dese[I].Cantidad, Admin.Dese[I].FechaD.Dia, Admin.Dese[I].FechaD.Mes, Admin.Dese[I].FechaD.Year: Entero);
+Procedimiento Desechable (E/S: Admin.Dese[ND].Nombre, Admin.Dese[ND].Medida, Admin.Dese[ND].Proveedor: Cadena, ND, Admin.Dese[ND].ID, Admin.Dese[ND].Cantidad, Admin.Dese[ND].FechaD.Dia, Admin.Dese[ND].FechaD.Mes, Admin.Dese[ND].FechaD.Year: Entero);
 Inicio
     Var I, Opc, ID, Cant, OpcM, Dia, Mes, Year, OpcB: Entero;
 
@@ -112,6 +112,7 @@ Inicio
         Leer >> Dia;
         Mientras (Dia < 1 Or Dia > 31) Hacer;
             Mostrar << "Solo valores entre 1-31";
+            Leer >> Dia;
         Fin_Mientras
         Admin.Dese[I].FechaD.Dia = Dia;
 
@@ -119,6 +120,7 @@ Inicio
         Leer >> Mes;
         Mientras (Mes < 1 Or Mes > 12) Hacer;
             Mostrar << "Solo valores entre 1-12";
+            Leer >> Mes;
         Fin_Mientras
         Admin.Dese[I].FechaD.Mes = Mes;
 
@@ -126,6 +128,7 @@ Inicio
         Leer >> Year;
         Mientras (Year < 2026) Hacer;
             Mostrar << "Solo valores mayores a 2026";
+            Leer >> Year;
         Fin_Mientras
         Admin.Dese[I].FechaD.Year = Year;
 

@@ -1,0 +1,181 @@
+Procedimiento Movil (E/S: Admin.Movil[NM].Nombre, Admin.Movil[NM].Estado, Admin.Movil[NM].Proveedor: Cadena, ND, Admin.Movil[NM].ID, Admin.Movil[NM].Cantidad, Admin.Movil[NM].FechaM.Dia, Admin.Movil[NM].FechaM.Mes, Admin.Movil[NM].FechaM.Year: Entero);
+Inicio
+    Var I, Opc, ID, Cant, OpcE, Dia, Mes, Year, OpcB: Entero;
+
+    Mostrar << "Bienvenido al registro de Aparatos de Movilidad";
+    Mostrar << "⢀⣴⡾⠿⠿⠿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⠶⠶⣤⡀⠀";
+    Mostrar << "⣾⠆⠁⠀⠀⠀⠀⠙⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⠟⠐⠁⠙⢦⠹⣷";
+    Mostrar << "⣟⡇⠀⠀⠀⠀⠀⠀⠈⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⣛⣉⡉⠀⠀⠀⠀⠀⠀⣿⠀";
+    Mostrar << "⠻⣧⡛⠷⠀⠀⠀⠀⠀⠠⠶⣤⣤⣤⣄⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠟";
+    Mostrar << "⠀⢀⣿⠛⠻⣦⠀⠀⠀⣠⣤⣶⡶⠶⠶⠶⠶⠶⠶⢦⠀⠀⠀ ⠀  ⡞⣯⠁⠀⠀⠀";
+    Mostrar << "⠀⣿⠉⠀⠀⡞⠀⢀⣼⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⡀⠀⠀⠀⠀⠀⣽⡇⠀";
+    Mostrar << "⠀⢻⣄⠀⢀⣰⣾⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣤⠀⠀⠀⠀⣾⡿⠀";
+    Mostrar << "⠀⠀⠙⠛⠛⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣷⣄⣠⣾⠟⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠁⠀⠀";
+
+    Mostrar << "Ingrese la cantidad de Aparatos de Movilidad";
+    Leer >> NM;
+    Mientras (NM < 2 Or NM > 500) Hacer;
+        Mostrar << "Solo valores entre 2-500";
+        Leer >> NM;
+    Fin_Mientras
+
+    Para (I = 1 Hasta I = NM) Hacer;
+        Mostrar << "Seleccione el Aparato de Movilidad";
+        Mostrar << "1: Silla de Ruedas Estándar";
+        Mostrar << "2: Camilla de Traslado";
+        Mostrar << "3: Carro de Medicamentos";
+        Mostrar << "4: Vehículo de Flota";
+        Mostrar << "5: Bicicleta de Carga";
+        Mostrar << "6: Bastón";
+        Mostrar << "7: Andador";
+        Mostrar << "8: Muletas Axilares";
+        Mostrar << "9: Silla Plegable de Ducha";
+        Mostrar << "10: Grúa de Transferencia";
+        Mostrar << "11: Otro";
+        Leer >> Opc;
+        Mientras (Opc < 1 Or Opc > 11) Hacer;
+            Mostrar << "Solo valores entre 1-11";
+            Leer >> Opc;
+        Fin_Mientras
+
+        En_Caso (Opc > 0) Sea;
+            Caso(Opc = 1);
+                Admin.Movil[I].Nombre = "Silla de Ruedas Estándar";
+            Caso(Opc = 2);
+                Admin.Movil[I].Nombre = "Camilla de Traslado";
+            Caso(Opc = 3);
+                Admin.Movil[I].Nombre = "Carro de Medicamentos";
+            Caso(Opc = 4);
+                Admin.Movil[I].Nombre = "Vehículo de Flota";
+            Caso(Opc = 5);
+                Admin.Movil[I].Nombre = "Bicicleta de Carga";
+            Caso(Opc = 6);
+                Admin.Movil[I].Nombre = "Bastón";
+            Caso(Opc = 7);
+                Admin.Movil[I].Nombre = "Andador";
+            Caso(Opc = 8);
+                Admin.Movil[I].Nombre = "Muletas Axilares";
+            Caso(Opc = 9);
+                Admin.Movil[I].Nombre = "Silla Plegable de Ducha";
+            Caso(Opc = 10);
+                Admin.Movil[I].Nombre = "Grúa de Transferencia";
+            Otro_Caso
+                Mostrar << "Ingrese el nombre del Aparato Movil";
+                Leer >> Admin.Movil[I].Nombre;
+        Fin_Caso
+
+        Mostrar << "Ingrese la ID del Aparato Movil";
+        Leer >> ID;
+        Mientras (ID < 1) Hacer;
+            Mostrar << "Solo valores positivos";
+            Leer >> ID;
+        Fin_Mientras
+        Admin.Movil[I].ID = ID;
+
+        Mostrar << "Ingrese las cantidades del Aparato Movil";
+        Leer >> Cant;
+        Mientras (Cant < 0) Hacer;
+            Mostrar << "Solo valores mayores a 0";
+            Leer >> Cant;
+        Fin_Mientras
+        Admin.Movil[I].Cantidad = Cant;
+
+        Mostrar << "Seleccione el Estado del Aparato Móvil";
+        Mostrar << "1: Operativo";
+        Mostrar << "2: En Mantenimiento";
+        Mostrar << "3: Pendiente de Limpieza";
+        Mostrar << "4: Retirado";
+        Mostrar << "5: Préstamo Externo";
+        Leer >> OpcE;
+        Mientras (OpcE < 1 Or OpcE > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcE;
+        Fin_Mientras
+
+        En_Caso (OpcE > 0) Sea;
+            Caso(OpcE = 1);
+                Admin.Movil[I].Estado = "Operativo";
+            Caso(OpcE = 2);
+                Admin.Movil[I].Estado = "En Mantenimiento";
+            Caso(OpcE = 3);
+                Admin.Movil[I].Estado = "Pendiente de Limpieza";
+            Caso(OpcE = 4);
+                Admin.Movil[I].Estado = "Retirado";
+            Otro_Caso
+                Admin.Movil[I].Estado = "Préstamo Externo";
+        Fin_Caso
+
+        Mostrar << "Ingrese dia de Mantenimiento";
+        Leer >> Dia;
+        Mientras (Dia < 1 Or Dia > 31) Hacer;
+            Mostrar << "Solo valores entre 1-31";
+            Leer >> Dia;
+        Fin_Mientras
+        Admin.Movil[I].FechaM.Dia = Dia;
+
+        Mostrar << "Ingrese mes de Mantenimiento";
+        Leer >> Mes;
+        Mientras (Mes < 1 Or Mes > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> Mes;
+        Fin_Mientras
+        Admin.Movil[I].FechaM.Mes = Mes;
+
+        Mostrar << "Ingrese Año de Mantenimiento";
+        Leer >> Year;
+        Mientras (Year < 2026) Hacer;
+            Mostrar << "Solo valores mayores a 2026";
+            Leer >> Year;
+        Fin_Mientras
+        Admin.Movil[I].FechaM.Year = Year;
+
+        Mostrar << "Seleccione el nombre del Proveedor";
+        Mostrar << "1: Electro Mobility Systems";
+        Mostrar << "2: HollowCare Transfer Tech";
+        Mostrar << "3: Six Seven Patient Transport";
+        Mostrar << "4: Ranger Ergonomics";
+        Mostrar << "5: NigraPro Motion Gear";
+        Mostrar << "6: Kavaleiros Wheelchair Dynamics";
+        Mostrar << "7: WolfPack Assistive Devices";
+        Mostrar << "8: Olympus Lift & Access";
+        Mostrar << "9: Nexus Mobility Engineering";
+        Mostrar << "10: E-404 Patient Handling";
+        Mostrar << "11: Jabra Rehab Equipment";
+        Mostrar << "12: Otro";
+        Leer >> OpcB;
+        Mientras (OpcB < 1 Or OpcB > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> OpcB;
+        Fin_Mientras
+
+        En_Caso (OpcB > 0) Sea;
+            Caso(OpcB = 1);
+                Admin.Movil[I].Proveedor = "Elecentro Mobility Systems";
+            Caso(OpcB = 2);
+                Admin.Movil[I].Proveedor = "HollowCare Transfer Tech";
+            Caso(OpcB = 3);
+                Admin.Movil[I].Proveedor = "Six Seven Patient Transport";
+            Caso(OpcB = 4);
+                Admin.Movil[I].Proveedor = "Ranger Ergonomics";
+            Caso(OpcB = 5);
+                Admin.Movil[I].Proveedor = "NigraPro Motion Gear";
+            Caso(OpcB = 6);
+                Admin.Movil[I].Proveedor = "Kavaleiros Wheelchair Dynamics";
+            Caso(OpcB = 7);
+                Admin.Movil[I].Proveedor = "WolfPack Assistive Devices";
+            Caso(OpcB = 8);
+                Admin.Movil[I].Proveedor = "Olympus Lift & Access";
+            Caso(OpcB = 9);
+                Admin.Movil[I].Proveedor = "Nexus Mobility Engineering";
+            Caso(OpcB = 10);
+                Admin.Movil[I].Proveedor = "E-404 Patient Handling";
+            Caso(OpcB = 11);
+                Admin.Movil[I].Proveedor = "Jabra Rehab Equipment";
+            Otro_Caso
+                Mostrar << "Ingrese el nombre del Proveedor";
+                Leer >> Admin.Movil[I].Proveedor;
+        Fin_Caso
+    Fin_Para
+
+Fin_Procedimiento

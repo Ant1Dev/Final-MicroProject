@@ -1,0 +1,39 @@
+Procedimiento Agregar ();
+Inicio
+    Var Opc: Entero;
+
+    Mostrar << "¿Que desea agregar?";
+    Mostrar << "1: Materiales Desechables";
+    Mostrar << "2: Materiales Instrumentales";
+    Mostrar << "3: Farmacos";
+    Mostrar << "4: Alimentos";
+    Mostrar << "5: Bolsas de Sangre";
+    Mostrar << "6: Gas";
+    Mostrar << "7: Anestesias";
+    Mostrar << "8: Aparatos de Movilidad";
+    Leer >> Opc;
+    Mientras (Opc < 1 Or Opc > 8) Hacer;
+        Mostrar << "Solo valores entre 1-9";
+        Leer Opc;
+    Fin_Mientras
+
+    En_Caso (Opc > 0) Sea;
+        Caso(Opc = 1);
+            Desechable (Admin.Dese[ND].Nombre, Admin.Dese[ND].Medida, Admin.Dese[ND].Proveedor, ND, Admin.Dese[ND].ID, Admin.Dese[ND].Cantidad, Admin.Dese[ND].FechaD.Dia, Admin.Dese[ND].FechaD.Mes, Admin.Dese[ND].FechaD.Year);
+        Caso(Opc = 2);
+            Intrumental (Admin.Inst[NI].Nombre, Admin.Inst[NI].Medida, Admin.Inst[NI].Proveedor, NI, Admin.Inst[NI].ID, Admin.Inst[NI].Cantidad, Admin.Inst[NI].FechaE.Dia, Admin.Inst[NI].FechaE.Mes, Admin.Inst[NI].FechaE.Year);
+        Caso(Opc = 3);
+            Farmaco (Admin.Farm[NF].Nombre, Admin.Farm[NF].Medida, Admin.Farm[NF].Proveedor, Admin.Farm[NF].Presentacion, Admin.Farm[NF].Concentracion, Admin.Farm[NF].Temperatura, NF, Admin.Farm[NF].ID, Admin.Farm[NF].Cantidad, Admin.Farm[NF].FechaF.Dia, Admin.Farm[NF].FechaF.Mes, Admin.Farm[NF].FechaF.Year);
+        Caso(Opc = 4);
+            Alimento (Admin.Alim[NA].Nombre, Admin.Alim[NA].Medida, Admin.Alim[NA].Tipo_Dieta, Admin.Alim[NA].Proveedor, NM, Admin.Alim[NA].ID, Admin.Alim[NA].Cantidad, Admin.Alim[NA].FechaA.Dia, Admin.Alim[NA].FechaA.Mes, Admin.Alim[NA].FechaA.Year);
+        Caso(Opc = 5);
+            Sangre (Admin.Sang[NS].Producto, Admin.Sangre[NS].Grupo, NS, Admin.Sang[NS].ID, Admin.Sang[NS].Cantidad, Admin.Sang[NS].FechaEX.Dia, Admin.Sang[NS].FechaEX.Mes, Admin.Sang[NS].FechaEX.Year, Admin.Sang[NS].FechaS.Dia, Admin.Sang[NS].FechaS.Mes, Admin.Sang[NS].FechaS.Year);
+        Caso(Opc = 6);
+            Gas (Admin.Gas[NG].Tipo, Admin.Gas[NG].Medida, Admin.Gas[NG].Proveedor,NG, Admin.Gas[NG].ID, Admin.Gas[NG].Cantidad, Admin.Gas[NG].PresionMin);
+        Caso(Opc = 7);
+            Anestesia (Admin.Anes[NAN].Tipo, Admin.Anes[NAN].Presentacion, Admin.Anes[NAN].Concentracion, Admin.Anes[NAN].Medida, Admin.Anes[NAN].Proveedor, NAN, Admin.Anes[NAN].ID, Admin.Anes[NAN].Cantidad, Admin.Anes[NAN].FechaAN.Dia, Admin.Anes[NAN].FechaAN.Mes, Admin.Anes[NAN].FechaAN.Year);
+        Otro_Caso
+            Movil (Admin.Movil[NM].Nombre, Admin.Movil[NM].Estado, Admin.Movil[NM].Proveedor, NM, Admin.Movil[NM].ID, Admin.Movil[NM].Cantidad, Admin.Movil[NM].FechaM.Dia, Admin.Movil[NM].FechaM.Mes, Admin.Movil[NM].FechaM.Year);
+    Fin_Caso
+
+Fin_Procedimiento

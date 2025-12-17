@@ -1,0 +1,43 @@
+Procedimiento Inventario (E/S: parametro: Entero);
+Inicio
+    Var Opc: Entero;
+    Repetir
+        Mostrar << "Bienvenido al inventario del hospital";⠀
+        Mostrar << "⠀⠀⠀⢠⡄⢠⣤⣤⠀⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⠀⣤⣤⡄⢠⡄⠀⠀⠀";
+        Mostrar << "⠀⠀⠀⢸⡇⢸⣿⣿⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿⣿⡇⢸⡇⠀⠀⠀";
+        Mostrar << "⠀⠀⠀⣿⡇⢸⣿⣿⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿⣿⡇⢸⣿⠀⠀⠀";
+        Mostrar << "⠀⠀⢀⣿⡇⢸⣿⣿⠀⣿⣿⣿⠟⠛⠛⠛⠛⠻⣿⣿⣿⠀⣿⣿⡇⢸⣿⡀⠀⠀";
+        Mostrar << "⠀⠀⢈⡉⢁⣀⣉⣉⣀⣉⣉⣉⠀⣴⠖⠲⣦⠀⣉⣉⣉⣀⣉⣉⣀⡈⢉⡁⠀⠀";
+        Mostrar << "⠀⠀⢸⡇⢸⣿⣿⣿⣿⣿⣿⣿⠀⣿⡄⢠⣿⠀⣿⣿⣿⣿⣿⣿⣿⡇⢸⡇⠀⠀";
+        Mostrar << "⠀⠀⢸⡇⢸⣿⣿⣿⣿⣿⣿⣿⠀⣿⣧⣼⣿⠀⣿⣿⣿⣿⣿⣿⣿⡇⢸⡇⠀⠀";
+        Mostrar << "⠀⠀⢸⡇⢸⣿⣿⣿⣿⣿⣿⣿⣀⣉⣉⣉⣉⣀⣿⣿⣿⣿⣿⣿⣿⡇⢸⡇⠀⠀";
+        Mostrar << "⠀⠀⠘⠇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠸⠃⠀⠀";
+        Mostrar << "⠀⠀⢰⣄⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⣠⡆⠀⠀";
+        Mostrar << "⠀⠀⠘⠛⠃⠈⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋⠁⠘⠛⠃⠀⠀";⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
+        Mostrar << "Seleccione una opción";
+        Mostrar << "1: Agregar";
+        Mostrar << "2: Ver inventario";
+        Mostrar << "3: Modificar";
+        Mostrar << "4: Salir";
+        Leer Opc;
+        Mientras (Opc < 1 Or Opc > 4) Hacer;
+            Mostrar << "Solo valores entre 1-4";
+            Leer Opc;
+        Fin_Mientras
+
+        En_Caso (Opc > 0) Sea;
+            Caso(Opc = 1);
+                Agregar();
+                Mostrar << Agregar;
+            Caso(Opc = 2);
+                Ver();
+                Mostrar << Ver;
+            Otro_Caso;
+                Buscar(Categ, Modif, Enc);
+                Mostrar << Buscar;
+        Fin_Caso
+        Hasta(Opc = 4);
+    Fin_Repetir
+
+Fin_Procedimiento

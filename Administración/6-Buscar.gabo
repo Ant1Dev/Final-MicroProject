@@ -1,0 +1,278 @@
+Procedimiento Buscar (E/S: Categ, Modif, Enc: Entero);
+Inicio
+    var Busc: Entero;
+
+    Repetir
+        Mostrar << "Ingrese la categoria que desea modificar";
+        Mostrar << "1: Desechables";
+        Mostrar << "2: Instrumentales";
+        Mostrar << "3: Farmacos";
+        Mostrar << "4: Alimentos";
+        Mostrar << "5: Bolsas de Sangre";
+        Mostrar << "6: Gas";
+        Mostrar << "7: Anestesias";
+        Mostrar << "8: Aparatos de Movilidad";
+        Mostrar << "9: Salir";
+        Leer >> Categ;
+        Mientras (Categ < 1 Or Categ > 9) Hacer;
+            Mostrar << "Solo valores entre 1-9";
+            Leer >> Categ;
+        Fin_Mientras
+
+        Mostrar << "Ingrese el nombre o tipo del Producto a Modificar";
+        Leer >> Busc;
+
+        En_Caso (Categ > 0) Sea;
+            Caso(Categ = 1);
+                Para (I = 1 Hasta I = ND) Hacer;
+                    Si (Admin.Dese[I].Nombre = Busc) Entonces;
+                        Enc = I;
+                        Repetir
+                            Mostrar << "Producto Encontrado";
+                            Mostrar << "¿Que desea Modificar?";
+                            Mostrar << "1: Nombre:...", Admin.Dese[I].Nombre;
+                            Mostrar << "2: ID:...", Admin.Dese[I].ID;
+                            Mostrar << "3: Cantidad:...", Admin.Dese[I].Cantidad;
+                            Mostrar << "4: Medida:...", Admin.Dese[I].Medida;
+                            Mostrar << "5: Dia de Desecho:...", Admin.Dese[I].FechaD.Dia;
+                            Mostrar << "6: Mes de Desecho:...", Admin.Dese[I].FechaD.Mes;
+                            Mostrar << "7: Año de Desecho:...", Admin.Dese[I].FechaD.Year;
+                            Mostrar << "8: Proveedor:...", Admin.Dese[I].Proveedor;
+                            Mostrar << "9: Salir";
+                            Leer >> Modif;
+                            Mientras (Modif < 1 Or Modif > 9) Hacer;
+                                Mostrar << "Solo valores entre 1-9";
+                                Leer >> Modif;
+                            Fin_Mientras
+                            Modificar(Categ, Modif, Enc, Admin.Dese[Enc].ID, Admin.Dese[Enc].Cantidad, Admin.Dese[Enc].Dia, Admin.Dese[Enc].Mes, Admin.Dese[Enc].Year, Admin.Inst[Enc].ID, Admin.Inst[Enc].Cantidad, Admin.Inst[Enc].Dia, Admin.Inst[Enc].Mes, Admin.Inst[Enc].Year, Admin.Farm[Enc].ID, Admin.Farm[Enc].Cantidad, Admin.Farm[Enc].Dia, Admin.Farm[Enc].Mes, Admin.Farm[Enc].Year, Admin.Alim[Enc].ID, Admin.Alim[Enc].Cantidad, Admin.Alim[Enc].Dia, Admin.Alim[Enc].Mes, Admin.Alim[Enc].Year, Admin.Sang[Enc].ID, Admin.Sang[Enc].Cantidad, Admin.Sang[Enc].Dia, Admin.Sang[Enc].Mes, Admin.Sang[Enc].Year, Admin.Gas[Enc].ID, Admin.Gas[Enc].Cantidad, Admin.Gas[Enc].PresionMin, Admin.Anes[Enc].ID, Admin.Anes[Enc].Cantidad, Admin.Anes[Enc].Dia, Admin.Anes[Enc].Mes, Admin.Anes[Enc].Year, Admin.Movil[Enc].ID, Admin.Movil[Enc].Cantidad, Admin.Movil[Enc].Dia, Admin.Movil[Enc].Mes, Admin.Movil[Enc].Year, Admin.Dese[Enc].Nombre, Admin.Dese[Enc].Medida, Admin.Dese[Enc].Proveedor, Admin.Inst[Enc].Nombre, Admin.Inst[Enc].Medida, Admin.Inst[Enc].Proveedor, Admin.Farm[Enc].Nombre, Admin.Farm[Enc].Medida, Admin.Farm[Enc].Presentacion, Admin.Farm[Enc].Concentracion, Admin.Farm[Enc].Temperatura, Admin.Farm[Enc].Proveedor, Admin.Alim[Enc].Nombre, Admin.Alim[Enc].Medida, Admin.Alim[Enc].Tipo_Dieta, Admin.Alim[Enc].Proveedor, Admin.Sang[Enc].Producto, Admin.Sang[Enc].Grupo, Admin.Gas[Enc].Tipo, Admin.Gas[Enc].Medida, Admin.Gas[Enc].Proveedor, Admin.Anes[Enc].Tipo, Admin.Anes[Enc].Medida, Admin.Anes[Enc].Presentacion, Admin.Anes[Enc].Concentracion, Admin.Anes[Enc].Proveedor, Admin.Movil[Enc].Nombre, Admin.Movil[Enc].Estado, Admin.Movil[Enc].Proveedor);
+                            Mostrar << Modificar;
+                            Hasta(Modif = 9);
+                        Fin_Repetir
+                    Fin_Si
+                Fin_Para
+                Si (Admin.Dese[I].Nombre <> Busc) Entonces;
+                    Mostrar << "Producto No Encontrado";
+                Fin_Si
+            Caso(Categ = 2);
+                Para (I = 1 Hasta I = NI) Hacer;
+                    Si (Admin.Inst[I].Nombre = Busc) Entonces;
+                        Enc = I;
+                        Repetir
+                            Mostrar << "Producto Encontrado";
+                            Mostrar << "¿Que desea Modificar?";
+                            Mostrar << "1: Nombre:...", Admin.Inst[I].Nombre;
+                            Mostrar << "2: ID:...", Admin.Inst[I].ID;
+                            Mostrar << "3: Cantidad:...", Admin.Inst[I].Cantidad;
+                            Mostrar << "4: Medida:...", Admin.Inst[I].Medida;
+                            Mostrar << "5: Dia de Esterilización:...", Admin.Inst[I].FechaE.Dia;
+                            Mostrar << "6: Mes de Esterilización:...", Admin.Inst[I].FechaE.Mes;
+                            Mostrar << "7: Año de Esterilización:...", Admin.Inst[I].FechaE.Year;
+                            Mostrar << "8: Proveedor:...", Admin.Inst[I].Proveedor;
+                            Mostrar << "9: Salir";
+                            Leer >> Modif;
+                            Mientras (Modif < 1 Or Modif > 9) Hacer;
+                                Mostrar << "Solo valores entre 1-9";
+                                Leer >> Modif;
+                            Fin_Mientras
+                            Modificar(Categ, Modif, Enc, Admin.Dese[Enc].ID, Admin.Dese[Enc].Cantidad, Admin.Dese[Enc].Dia, Admin.Dese[Enc].Mes, Admin.Dese[Enc].Year, Admin.Inst[Enc].ID, Admin.Inst[Enc].Cantidad, Admin.Inst[Enc].Dia, Admin.Inst[Enc].Mes, Admin.Inst[Enc].Year, Admin.Farm[Enc].ID, Admin.Farm[Enc].Cantidad, Admin.Farm[Enc].Dia, Admin.Farm[Enc].Mes, Admin.Farm[Enc].Year, Admin.Alim[Enc].ID, Admin.Alim[Enc].Cantidad, Admin.Alim[Enc].Dia, Admin.Alim[Enc].Mes, Admin.Alim[Enc].Year, Admin.Sang[Enc].ID, Admin.Sang[Enc].Cantidad, Admin.Sang[Enc].Dia, Admin.Sang[Enc].Mes, Admin.Sang[Enc].Year, Admin.Gas[Enc].ID, Admin.Gas[Enc].Cantidad, Admin.Gas[Enc].PresionMin, Admin.Anes[Enc].ID, Admin.Anes[Enc].Cantidad, Admin.Anes[Enc].Dia, Admin.Anes[Enc].Mes, Admin.Anes[Enc].Year, Admin.Movil[Enc].ID, Admin.Movil[Enc].Cantidad, Admin.Movil[Enc].Dia, Admin.Movil[Enc].Mes, Admin.Movil[Enc].Year, Admin.Dese[Enc].Nombre, Admin.Dese[Enc].Medida, Admin.Dese[Enc].Proveedor, Admin.Inst[Enc].Nombre, Admin.Inst[Enc].Medida, Admin.Inst[Enc].Proveedor, Admin.Farm[Enc].Nombre, Admin.Farm[Enc].Medida, Admin.Farm[Enc].Presentacion, Admin.Farm[Enc].Concentracion, Admin.Farm[Enc].Temperatura, Admin.Farm[Enc].Proveedor, Admin.Alim[Enc].Nombre, Admin.Alim[Enc].Medida, Admin.Alim[Enc].Tipo_Dieta, Admin.Alim[Enc].Proveedor, Admin.Sang[Enc].Producto, Admin.Sang[Enc].Grupo, Admin.Gas[Enc].Tipo, Admin.Gas[Enc].Medida, Admin.Gas[Enc].Proveedor, Admin.Anes[Enc].Tipo, Admin.Anes[Enc].Medida, Admin.Anes[Enc].Presentacion, Admin.Anes[Enc].Concentracion, Admin.Anes[Enc].Proveedor, Admin.Movil[Enc].Nombre, Admin.Movil[Enc].Estado, Admin.Movil[Enc].Proveedor);
+                            Mostrar << Modificar;
+                            Hasta(Modif = 9);
+                        Fin_Repetir
+                    Fin_Si
+                Fin_Para
+                Si (Admin.Inst[I].Nombre <> Busc) Entonces;
+                    Mostrar << "Producto No Encontrado";
+                Fin_Si
+            Caso(Categ = 3);
+                Para (I = 1 Hasta I = NF) Hacer;
+                    Si (Admin.Farm[I].Nombre = Busc) Entonces;
+                        Enc = I;
+                        Repetir
+                            Mostrar << "Producto Encontrado";
+                            Mostrar << "¿Que desea Modificar?";
+                            Mostrar << "1: Nombre:...", Admin.Farm[I].Nombre;
+                            Mostrar << "2: ID:...", Admin.Farm[I].ID;
+                            Mostrar << "3: Cantidad:...", Admin.Farm[I].Cantidad;
+                            Mostrar << "4: Medida:...", Admin.Farm[I].Medida;
+                            Mostrar << "5: Presentación:...", Admin.Farm[I].Presentacion;
+                            Mostrar << "6: Concentración:...", Admin.Farm[I].Concentracion;
+                            Mostrar << "7: Temperatura de Almacenamiento:...", Admin.Farm[I].Temperatura;
+                            Mostrar << "8: Dia de Vencimiento:...", Admin.Farm[I].FechaF.Dia;
+                            Mostrar << "9: Mes de Vencimiento:...", Admin.Farm[I].FechaF.Mes;
+                            Mostrar << "10: Año de Vencimiento:...", Admin.Farm[I].FechaF.Year;
+                            Mostrar << "11: Proveedor:...", Admin.Farm[I].Proveedor;
+                            Mostrar << "12: Salir";
+                            Leer >> Modif;
+                            Mientras (Modif < 1 Or Modif > 12) Hacer;
+                                Mostrar << "Solo valores entre 1-12";
+                                Leer >> Modif;
+                            Fin_Mientras
+                            Modificar(Categ, Modif, Enc, Admin.Dese[Enc].ID, Admin.Dese[Enc].Cantidad, Admin.Dese[Enc].Dia, Admin.Dese[Enc].Mes, Admin.Dese[Enc].Year, Admin.Inst[Enc].ID, Admin.Inst[Enc].Cantidad, Admin.Inst[Enc].Dia, Admin.Inst[Enc].Mes, Admin.Inst[Enc].Year, Admin.Farm[Enc].ID, Admin.Farm[Enc].Cantidad, Admin.Farm[Enc].Dia, Admin.Farm[Enc].Mes, Admin.Farm[Enc].Year, Admin.Alim[Enc].ID, Admin.Alim[Enc].Cantidad, Admin.Alim[Enc].Dia, Admin.Alim[Enc].Mes, Admin.Alim[Enc].Year, Admin.Sang[Enc].ID, Admin.Sang[Enc].Cantidad, Admin.Sang[Enc].Dia, Admin.Sang[Enc].Mes, Admin.Sang[Enc].Year, Admin.Gas[Enc].ID, Admin.Gas[Enc].Cantidad, Admin.Gas[Enc].PresionMin, Admin.Anes[Enc].ID, Admin.Anes[Enc].Cantidad, Admin.Anes[Enc].Dia, Admin.Anes[Enc].Mes, Admin.Anes[Enc].Year, Admin.Movil[Enc].ID, Admin.Movil[Enc].Cantidad, Admin.Movil[Enc].Dia, Admin.Movil[Enc].Mes, Admin.Movil[Enc].Year, Admin.Dese[Enc].Nombre, Admin.Dese[Enc].Medida, Admin.Dese[Enc].Proveedor, Admin.Inst[Enc].Nombre, Admin.Inst[Enc].Medida, Admin.Inst[Enc].Proveedor, Admin.Farm[Enc].Nombre, Admin.Farm[Enc].Medida, Admin.Farm[Enc].Presentacion, Admin.Farm[Enc].Concentracion, Admin.Farm[Enc].Temperatura, Admin.Farm[Enc].Proveedor, Admin.Alim[Enc].Nombre, Admin.Alim[Enc].Medida, Admin.Alim[Enc].Tipo_Dieta, Admin.Alim[Enc].Proveedor, Admin.Sang[Enc].Producto, Admin.Sang[Enc].Grupo, Admin.Gas[Enc].Tipo, Admin.Gas[Enc].Medida, Admin.Gas[Enc].Proveedor, Admin.Anes[Enc].Tipo, Admin.Anes[Enc].Medida, Admin.Anes[Enc].Presentacion, Admin.Anes[Enc].Concentracion, Admin.Anes[Enc].Proveedor, Admin.Movil[Enc].Nombre, Admin.Movil[Enc].Estado, Admin.Movil[Enc].Proveedor);
+                            Mostrar << Modificar;
+                            Hasta(Modif = 12);
+                        Fin_Repetir
+                    Fin_Si
+                Fin_Para
+                Si (Admin.Farm[I].Nombre <> Busc) Entonces;
+                    Mostrar << "Producto No Encontrado";
+                Fin_Si
+            Caso(Categ = 4);
+                Para (I = 1 Hasta I = NA) Hacer;
+                    Si (Admin.Alim[I].Nombre = Busc) Entonces;
+                        Enc = I;
+                        Repetir
+                            Mostrar << "Producto Encontrado";
+                            Mostrar << "¿Que desea Modificar?";
+                            Mostrar << "1: Nombre:...", Admin.Alim[I].Nombre;
+                            Mostrar << "2: ID:...", Admin.Alim[I].ID;
+                            Mostrar << "3: Cantidad:...", Admin.Alim[I].Cantidad;
+                            Mostrar << "4: Medida:...", Admin.Alim[I].Medida;
+                            Mostrar << "5: Tipo de Dieta:...", Admin.Alim[I].Tipo_Dieta;
+                            Mostrar << "6: Dia de Vencimiento:...", Admin.Alim[I].FechaA.Dia;
+                            Mostrar << "7: Mes de Vencimiento:...", Admin.Alim[I].FechaA.Mes;
+                            Mostrar << "8: Año de Vencimiento:...", Admin.Alim[I].FechaA.Year;
+                            Mostrar << "9: Proveedor:...", Admin.Alim[I].Proveedor;
+                            Mostrar << "10: Salir";
+                            Leer >> Modif;
+                            Mientras (Modif < 1 Or Modif > 10) Hacer;
+                                Mostrar << "Solo valores entre 1-10";
+                                Leer >> Modif;
+                            Fin_Mientras
+                            Modificar(Categ, Modif, Enc, Admin.Dese[Enc].ID, Admin.Dese[Enc].Cantidad, Admin.Dese[Enc].Dia, Admin.Dese[Enc].Mes, Admin.Dese[Enc].Year, Admin.Inst[Enc].ID, Admin.Inst[Enc].Cantidad, Admin.Inst[Enc].Dia, Admin.Inst[Enc].Mes, Admin.Inst[Enc].Year, Admin.Farm[Enc].ID, Admin.Farm[Enc].Cantidad, Admin.Farm[Enc].Dia, Admin.Farm[Enc].Mes, Admin.Farm[Enc].Year, Admin.Alim[Enc].ID, Admin.Alim[Enc].Cantidad, Admin.Alim[Enc].Dia, Admin.Alim[Enc].Mes, Admin.Alim[Enc].Year, Admin.Sang[Enc].ID, Admin.Sang[Enc].Cantidad, Admin.Sang[Enc].Dia, Admin.Sang[Enc].Mes, Admin.Sang[Enc].Year, Admin.Gas[Enc].ID, Admin.Gas[Enc].Cantidad, Admin.Gas[Enc].PresionMin, Admin.Anes[Enc].ID, Admin.Anes[Enc].Cantidad, Admin.Anes[Enc].Dia, Admin.Anes[Enc].Mes, Admin.Anes[Enc].Year, Admin.Movil[Enc].ID, Admin.Movil[Enc].Cantidad, Admin.Movil[Enc].Dia, Admin.Movil[Enc].Mes, Admin.Movil[Enc].Year, Admin.Dese[Enc].Nombre, Admin.Dese[Enc].Medida, Admin.Dese[Enc].Proveedor, Admin.Inst[Enc].Nombre, Admin.Inst[Enc].Medida, Admin.Inst[Enc].Proveedor, Admin.Farm[Enc].Nombre, Admin.Farm[Enc].Medida, Admin.Farm[Enc].Presentacion, Admin.Farm[Enc].Concentracion, Admin.Farm[Enc].Temperatura, Admin.Farm[Enc].Proveedor, Admin.Alim[Enc].Nombre, Admin.Alim[Enc].Medida, Admin.Alim[Enc].Tipo_Dieta, Admin.Alim[Enc].Proveedor, Admin.Sang[Enc].Producto, Admin.Sang[Enc].Grupo, Admin.Gas[Enc].Tipo, Admin.Gas[Enc].Medida, Admin.Gas[Enc].Proveedor, Admin.Anes[Enc].Tipo, Admin.Anes[Enc].Medida, Admin.Anes[Enc].Presentacion, Admin.Anes[Enc].Concentracion, Admin.Anes[Enc].Proveedor, Admin.Movil[Enc].Nombre, Admin.Movil[Enc].Estado, Admin.Movil[Enc].Proveedor);
+                            Mostrar << Modificar;
+                            Hasta(Modif = 10);
+                        Fin_Repetir
+                    Fin_Si
+                Fin_Para
+                Si (Admin.Alim[I].Nombre <> Busc) Entonces;
+                    Mostrar << "Producto No Encontrado";
+                Fin_Si
+            Caso(Categ = 5);
+                Para (I = 1 Hasta I = NS) Hacer;
+                    Si (Admin.Sang[I].Producto = Busc) Entonces;
+                        Enc = I;
+                        Repetir
+                            Mostrar << "Producto Encontrado";
+                            Mostrar << "¿Que desea Modificar?";
+                            Mostrar << "1: Producto:...", Admin.Sang[I].Producto;
+                            Mostrar << "2: ID:...", Admin.Sang[I].ID;
+                            Mostrar << "3: Cantidad:...", Admin.Sang[I].Cantidad;
+                            Mostrar << "4: Grupo Sanguíneo:...", Admin.Sang[I].Grupo;
+                            Mostrar << "5: Dia de Extracción:...", Admin.Sang[I].FechaEX.Dia;
+                            Mostrar << "6: Mes de Extracción:...", Admin.Sang[I].FechaEX.Mes;
+                            Mostrar << "7: Año de Extracción:...", Admin.Sang[I].FechaEX.Year;
+                            Mostrar << "8: Dia de Salida:...", Admin.Sang[I].FechaS.Dia;
+                            Mostrar << "9: Mes de Salida:...", Admin.Sang[I].FechaS.Mes;
+                            Mostrar << "10: Año de Salida:...", Admin.Sang[I].FechaS.Year;
+                            Mostrar << "11: Proveedor:...", Admin.Sang[I].Proveedor;
+                            Mostrar << "12: Salir";
+                            Leer >> Modif;
+                            Mientras (Modif < 1 Or Modif > 12) Hacer;
+                                Mostrar << "Solo valores entre 1-12";
+                                Leer >> Modif;
+                            Fin_Mientras
+                            Modificar(Categ, Modif, Enc, Admin.Dese[Enc].ID, Admin.Dese[Enc].Cantidad, Admin.Dese[Enc].Dia, Admin.Dese[Enc].Mes, Admin.Dese[Enc].Year, Admin.Inst[Enc].ID, Admin.Inst[Enc].Cantidad, Admin.Inst[Enc].Dia, Admin.Inst[Enc].Mes, Admin.Inst[Enc].Year, Admin.Farm[Enc].ID, Admin.Farm[Enc].Cantidad, Admin.Farm[Enc].Dia, Admin.Farm[Enc].Mes, Admin.Farm[Enc].Year, Admin.Alim[Enc].ID, Admin.Alim[Enc].Cantidad, Admin.Alim[Enc].Dia, Admin.Alim[Enc].Mes, Admin.Alim[Enc].Year, Admin.Sang[Enc].ID, Admin.Sang[Enc].Cantidad, Admin.Sang[Enc].Dia, Admin.Sang[Enc].Mes, Admin.Sang[Enc].Year, Admin.Gas[Enc].ID, Admin.Gas[Enc].Cantidad, Admin.Gas[Enc].PresionMin, Admin.Anes[Enc].ID, Admin.Anes[Enc].Cantidad, Admin.Anes[Enc].Dia, Admin.Anes[Enc].Mes, Admin.Anes[Enc].Year, Admin.Movil[Enc].ID, Admin.Movil[Enc].Cantidad, Admin.Movil[Enc].Dia, Admin.Movil[Enc].Mes, Admin.Movil[Enc].Year, Admin.Dese[Enc].Nombre, Admin.Dese[Enc].Medida, Admin.Dese[Enc].Proveedor, Admin.Inst[Enc].Nombre, Admin.Inst[Enc].Medida, Admin.Inst[Enc].Proveedor, Admin.Farm[Enc].Nombre, Admin.Farm[Enc].Medida, Admin.Farm[Enc].Presentacion, Admin.Farm[Enc].Concentracion, Admin.Farm[Enc].Temperatura, Admin.Farm[Enc].Proveedor, Admin.Alim[Enc].Nombre, Admin.Alim[Enc].Medida, Admin.Alim[Enc].Tipo_Dieta, Admin.Alim[Enc].Proveedor, Admin.Sang[Enc].Producto, Admin.Sang[Enc].Grupo, Admin.Gas[Enc].Tipo, Admin.Gas[Enc].Medida, Admin.Gas[Enc].Proveedor, Admin.Anes[Enc].Tipo, Admin.Anes[Enc].Medida, Admin.Anes[Enc].Presentacion, Admin.Anes[Enc].Concentracion, Admin.Anes[Enc].Proveedor, Admin.Movil[Enc].Nombre, Admin.Movil[Enc].Estado, Admin.Movil[Enc].Proveedor);
+                            Mostrar << Modificar;
+                            Hasta(Modif = 12);
+                        Fin_Repetir
+                    Fin_Si
+                Fin_Para
+                Si (Admin.Sang[I].Producto <> Busc) Entonces;
+                    Mostrar << "Producto No Encontrado";
+                Fin_Si
+            Caso(Categ = 6);
+                Para (I = 1 Hasta I = NG) Hacer;
+                    Si (Admin.Gas[I].Tipo = Busc) Entonces;
+                        Enc = I;
+                        Repetir
+                            Mostrar << "Producto Encontrado";
+                            Mostrar << "¿Que desea Modificar?";
+                            Mostrar << "1: Tipo:...", Admin.Gas[I].Tipo;
+                            Mostrar << "2: ID:...", Admin.Gas[I].ID;
+                            Mostrar << "3: Cantidad:...", Admin.Gas[I].Cantidad;
+                            Mostrar << "4: Medida:...", Admin.Gas[I].Medida;
+                            Mostrar << "5: Presión Mínima:...", Admin.Gas[I].PresionMin;
+                            Mostrar << "6: Proveedor:...", Admin.Gas[I].Proveedor;
+                            Mostrar << "7: Salir";
+                            Leer >> Modif;
+                            Mientras (Modif < 1 Or Modif > 7) Hacer;
+                                Mostrar << "Solo valores entre 1-7";
+                                Leer >> Modif;
+                            Fin_Mientras
+                            Modificar(Categ, Modif, Enc, Admin.Dese[Enc].ID, Admin.Dese[Enc].Cantidad, Admin.Dese[Enc].Dia, Admin.Dese[Enc].Mes, Admin.Dese[Enc].Year, Admin.Inst[Enc].ID, Admin.Inst[Enc].Cantidad, Admin.Inst[Enc].Dia, Admin.Inst[Enc].Mes, Admin.Inst[Enc].Year, Admin.Farm[Enc].ID, Admin.Farm[Enc].Cantidad, Admin.Farm[Enc].Dia, Admin.Farm[Enc].Mes, Admin.Farm[Enc].Year, Admin.Alim[Enc].ID, Admin.Alim[Enc].Cantidad, Admin.Alim[Enc].Dia, Admin.Alim[Enc].Mes, Admin.Alim[Enc].Year, Admin.Sang[Enc].ID, Admin.Sang[Enc].Cantidad, Admin.Sang[Enc].Dia, Admin.Sang[Enc].Mes, Admin.Sang[Enc].Year, Admin.Gas[Enc].ID, Admin.Gas[Enc].Cantidad, Admin.Gas[Enc].PresionMin, Admin.Anes[Enc].ID, Admin.Anes[Enc].Cantidad, Admin.Anes[Enc].Dia, Admin.Anes[Enc].Mes, Admin.Anes[Enc].Year, Admin.Movil[Enc].ID, Admin.Movil[Enc].Cantidad, Admin.Movil[Enc].Dia, Admin.Movil[Enc].Mes, Admin.Movil[Enc].Year, Admin.Dese[Enc].Nombre, Admin.Dese[Enc].Medida, Admin.Dese[Enc].Proveedor, Admin.Inst[Enc].Nombre, Admin.Inst[Enc].Medida, Admin.Inst[Enc].Proveedor, Admin.Farm[Enc].Nombre, Admin.Farm[Enc].Medida, Admin.Farm[Enc].Presentacion, Admin.Farm[Enc].Concentracion, Admin.Farm[Enc].Temperatura, Admin.Farm[Enc].Proveedor, Admin.Alim[Enc].Nombre, Admin.Alim[Enc].Medida, Admin.Alim[Enc].Tipo_Dieta, Admin.Alim[Enc].Proveedor, Admin.Sang[Enc].Producto, Admin.Sang[Enc].Grupo, Admin.Gas[Enc].Tipo, Admin.Gas[Enc].Medida, Admin.Gas[Enc].Proveedor, Admin.Anes[Enc].Tipo, Admin.Anes[Enc].Medida, Admin.Anes[Enc].Presentacion, Admin.Anes[Enc].Concentracion, Admin.Anes[Enc].Proveedor, Admin.Movil[Enc].Nombre, Admin.Movil[Enc].Estado, Admin.Movil[Enc].Proveedor);
+                            Mostrar << Modificar;
+                            Hasta(Modif = 7);
+                        Fin_Repetir
+                    Fin_Si
+                Fin_Para
+                Si (Admin.Gas[I].Tipo <> Busc) Entonces;
+                    Mostrar << "Producto No Encontrado";
+                Fin_Si
+            Caso(Categ = 7);
+                Para (I = 1 Hasta I = NA) Hacer;
+                    Si (Admin.Anes[I].Tipo = Busc) Entonces;
+                        Enc = I;
+                        Repetir
+                            Mostrar << "Producto Encontrado";
+                            Mostrar << "¿Que desea Modificar?";
+                            Mostrar << "1: Tipo:...", Admin.Anes[I].Tipo;
+                            Mostrar << "2: ID:...", Admin.Anes[I].ID;
+                            Mostrar << "3: Cantidad:...", Admin.Anes[I].Cantidad;
+                            Mostrar << "4: Medida:...", Admin.Anes[I].Medida;
+                            Mostrar << "5: Presentación:...", Admin.Anes[I].Presentacion;
+                            Mostrar << "6: Concentración:...", Admin.Anes[I].Concentracion;
+                            Mostrar << "7: Dia de Vencimiento:...", Admin.Anes[I].FechaAN.Dia;
+                            Mostrar << "8: Mes de Vencimiento:...", Admin.Anes[I].FechaAN.Mes;
+                            Mostrar << "9: Año de Vencimiento:...", Admin.Anes[I].FechaAN.Year;
+                            Mostrar << "10: Proveedor:...", Admin.Anes[I].Proveedor;
+                            Mostrar << "11: Salir";
+                            Leer >> Modif;
+                            Mientras (Modif < 1 Or Modif > 11) Hacer;
+                                Mostrar << "Solo valores entre 1-11";
+                                Leer >> Modif;
+                            Fin_Mientras
+                            Modificar(Categ, Modif, Enc, Admin.Dese[Enc].ID, Admin.Dese[Enc].Cantidad, Admin.Dese[Enc].Dia, Admin.Dese[Enc].Mes, Admin.Dese[Enc].Year, Admin.Inst[Enc].ID, Admin.Inst[Enc].Cantidad, Admin.Inst[Enc].Dia, Admin.Inst[Enc].Mes, Admin.Inst[Enc].Year, Admin.Farm[Enc].ID, Admin.Farm[Enc].Cantidad, Admin.Farm[Enc].Dia, Admin.Farm[Enc].Mes, Admin.Farm[Enc].Year, Admin.Alim[Enc].ID, Admin.Alim[Enc].Cantidad, Admin.Alim[Enc].Dia, Admin.Alim[Enc].Mes, Admin.Alim[Enc].Year, Admin.Sang[Enc].ID, Admin.Sang[Enc].Cantidad, Admin.Sang[Enc].Dia, Admin.Sang[Enc].Mes, Admin.Sang[Enc].Year, Admin.Gas[Enc].ID, Admin.Gas[Enc].Cantidad, Admin.Gas[Enc].PresionMin, Admin.Anes[Enc].ID, Admin.Anes[Enc].Cantidad, Admin.Anes[Enc].Dia, Admin.Anes[Enc].Mes, Admin.Anes[Enc].Year, Admin.Movil[Enc].ID, Admin.Movil[Enc].Cantidad, Admin.Movil[Enc].Dia, Admin.Movil[Enc].Mes, Admin.Movil[Enc].Year, Admin.Dese[Enc].Nombre, Admin.Dese[Enc].Medida, Admin.Dese[Enc].Proveedor, Admin.Inst[Enc].Nombre, Admin.Inst[Enc].Medida, Admin.Inst[Enc].Proveedor, Admin.Farm[Enc].Nombre, Admin.Farm[Enc].Medida, Admin.Farm[Enc].Presentacion, Admin.Farm[Enc].Concentracion, Admin.Farm[Enc].Temperatura, Admin.Farm[Enc].Proveedor, Admin.Alim[Enc].Nombre, Admin.Alim[Enc].Medida, Admin.Alim[Enc].Tipo_Dieta, Admin.Alim[Enc].Proveedor, Admin.Sang[Enc].Producto, Admin.Sang[Enc].Grupo, Admin.Gas[Enc].Tipo, Admin.Gas[Enc].Medida, Admin.Gas[Enc].Proveedor, Admin.Anes[Enc].Tipo, Admin.Anes[Enc].Medida, Admin.Anes[Enc].Presentacion, Admin.Anes[Enc].Concentracion, Admin.Anes[Enc].Proveedor, Admin.Movil[Enc].Nombre, Admin.Movil[Enc].Estado, Admin.Movil[Enc].Proveedor);
+                            Mostrar << Modificar;
+                            Hasta(Modif = 11);
+                        Fin_Repetir
+                    Fin_Si
+                Fin_Para
+                Si (Admin.Anes[I].Tipo <> Busc) Entonces;
+                    Mostrar << "Producto No Encontrado";
+                Fin_Si
+            Otro_Caso;
+                Para (I = 1 Hasta IM) Hacer;
+                    Si (Admin.Movil[I].Nombre = Busc) Entonces;
+                        Enc = I;
+                        Repetir
+                            Mostrar << "Producto Encontrado";
+                            Mostrar << "¿Que desea Modificar?";
+                            Mostrar << "1: Nombre:...", Admin.Movil[I].Nombre;
+                            Mostrar << "2: ID:...", Admin.Movil[I].ID;
+                            Mostrar << "3: Cantidad:...", Admin.Movil[I].Cantidad;
+                            Mostrar << "4: Estado:...", Admin.Movil[I].Estado;
+                            Mostrar << "5: Dia de Mantenimiento:...", Admin.Movil[I].FechaM.Dia;
+                            Mostrar << "6: Mes de Mantenimiento:...", Admin.Movil[I].FechaM.Mes;
+                            Mostrar << "7: Año de Mantenimiento:...", Admin.Movil[I].FechaM.Year;
+                            Mostrar << "8: Proveedor:...", Admin.Movil[I].Proveedor;
+                            Mostrar << "9: Salir";
+                            Leer >> Modif;
+                            Mientras (Modif < 1 Or Modif > 9) Hacer;
+                                Mostrar << "Solo valores entre 1-9";
+                                Leer >> Modif;
+                            Fin_Mientras
+                            Modificar(Categ, Modif, Enc, Admin.Dese[Enc].ID, Admin.Dese[Enc].Cantidad, Admin.Dese[Enc].Dia, Admin.Dese[Enc].Mes, Admin.Dese[Enc].Year, Admin.Inst[Enc].ID, Admin.Inst[Enc].Cantidad, Admin.Inst[Enc].Dia, Admin.Inst[Enc].Mes, Admin.Inst[Enc].Year, Admin.Farm[Enc].ID, Admin.Farm[Enc].Cantidad, Admin.Farm[Enc].Dia, Admin.Farm[Enc].Mes, Admin.Farm[Enc].Year, Admin.Alim[Enc].ID, Admin.Alim[Enc].Cantidad, Admin.Alim[Enc].Dia, Admin.Alim[Enc].Mes, Admin.Alim[Enc].Year, Admin.Sang[Enc].ID, Admin.Sang[Enc].Cantidad, Admin.Sang[Enc].Dia, Admin.Sang[Enc].Mes, Admin.Sang[Enc].Year, Admin.Gas[Enc].ID, Admin.Gas[Enc].Cantidad, Admin.Gas[Enc].PresionMin, Admin.Anes[Enc].ID, Admin.Anes[Enc].Cantidad, Admin.Anes[Enc].Dia, Admin.Anes[Enc].Mes, Admin.Anes[Enc].Year, Admin.Movil[Enc].ID, Admin.Movil[Enc].Cantidad, Admin.Movil[Enc].Dia, Admin.Movil[Enc].Mes, Admin.Movil[Enc].Year, Admin.Dese[Enc].Nombre, Admin.Dese[Enc].Medida, Admin.Dese[Enc].Proveedor, Admin.Inst[Enc].Nombre, Admin.Inst[Enc].Medida, Admin.Inst[Enc].Proveedor, Admin.Farm[Enc].Nombre, Admin.Farm[Enc].Medida, Admin.Farm[Enc].Presentacion, Admin.Farm[Enc].Concentracion, Admin.Farm[Enc].Temperatura, Admin.Farm[Enc].Proveedor, Admin.Alim[Enc].Nombre, Admin.Alim[Enc].Medida, Admin.Alim[Enc].Tipo_Dieta, Admin.Alim[Enc].Proveedor, Admin.Sang[Enc].Producto, Admin.Sang[Enc].Grupo, Admin.Gas[Enc].Tipo, Admin.Gas[Enc].Medida, Admin.Gas[Enc].Proveedor, Admin.Anes[Enc].Tipo, Admin.Anes[Enc].Medida, Admin.Anes[Enc].Presentacion, Admin.Anes[Enc].Concentracion, Admin.Anes[Enc].Proveedor, Admin.Movil[Enc].Nombre, Admin.Movil[Enc].Estado, Admin.Movil[Enc].Proveedor);
+                            Mostrar << Modificar;
+                            Hasta(Modif = 9);
+                        Fin_Repetir
+                    Fin_Si
+                Fin_Para
+                Si (Admin.Movil[I].Nombre <> Busc) Entonces;
+                    Mostrar << "Producto No Encontrado";
+                Fin_Si
+        Fin_Caso
+
+        Hasta(Catg = 9);
+    Fin_Repetir
+
+Fin_Procedimiento

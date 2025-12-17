@@ -1,3 +1,6 @@
+Algoritmo Hospital
+Inicio
+
 Registro: Administracion;
     Desechables: Cadena;
     Instrumental: Cadena;
@@ -68,14 +71,16 @@ Registro: Fecha_Caducidad_A;
 Fin_Registro
 
 Registro: Sangre;
-    Nombre_Donante: Cadena;
-    Apellido_Donante: Cadena;
     Producto: Cadena; 
     ID: Entero; 
-    Grupo: Cadena; // Grupo Sanguíneo
-    Cantidad: Entero; // En número de bolsas
-    Extraccion: Entero;
-    Fecha_Vencimiento_Sangre: Entero;
+    Grupo: Cadena;
+    Cantidad: Entero;
+    Fecha_Extraccion: Entero;
+    Fecha_Vencimiento_S: Entero;
+Fin_Registro
+
+Registro: Fecha_Extraccion;
+    Dia, Mes, Year: Entero;
 Fin_Registro
 
 Registro: Fecha_Vencimiento_S;
@@ -83,12 +88,27 @@ Registro: Fecha_Vencimiento_S;
 Fin_Registro
 
 Registro: Gases;
-    Nombre: Cadena; // Oxígeno, Óxido Nitroso, Aire Comprimido
+    Tipo: Cadena;
     ID: Entero; 
     Cantidad: Entero;
-    Medida: Cadena; // Cilindro, Litro cúbico
-    Presion_Minima: Entero; // Presión requerida para considerar el cilindro vacío
+    Medida: Cadena;
+    PresionMin: Entero;
     Proveedor: Cadena;
+Fin_Registro
+
+Registro: Anestesias;
+    Tipo: Cadena;
+    ID: Entero; 
+    Presentacion: Cadena;
+    Concentracion: Cadena;
+    Cantidad: Entero;
+    Medida: Cadena;
+    Fecha_Caducidad_AN: Entero;
+    Proveedor: Cadena;
+Fin_Registro
+
+Registro: Fecha_Caducidad_AN;
+    Dia, Mes, Year: Entero;
 Fin_Registro
 
 Registro: Movilidad;
@@ -96,24 +116,10 @@ Registro: Movilidad;
     ID: Entero; 
     Cantidad: Entero;
     Estado: Cadena;
-    Departamento: Cadena;
-    Fecha_Mantenimiento_Movil: Entero;
+    Fecha_Mantenimiento: Entero;
     Proveedor: Cadena;
 Fin_Registro
 
-Registro: Fecha_Mantenimiento_M;
-    Dia, Mes, Year: Entero;
-Fin_Registro
-
-Registro: Equipos;
-    Nombre: Cadena; 
-    ID: Entero; 
-    Departamento: Cadena; 
-    Estado: Cadena; 
-    Fecha_Mantenimiento_Admin: Entero;
-    Proveedor: Cadena;
-Fin_Registro
-
-Registro: Fecha_Mantenimiento_E;
+Registro: Fecha_Mantenimiento;
     Dia, Mes, Year: Entero;
 Fin_Registro

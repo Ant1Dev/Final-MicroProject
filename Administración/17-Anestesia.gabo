@@ -1,0 +1,242 @@
+Procedimiento Anestesia (E/S: Admin.Anes[NAN].Tipo, Admin.Anes[NAN].Presentacion, Admin.AnesNAN.Concentracion, Admin.AnesNAN.Medida, Admin.Anes[NAN].Proveedor: CadeNAN, NAN, Admin.Anes[NAN].ID, Admin.Anes[NAN].Cantidad, Admin.Anes[NAN].FechaAN.Dia, Admin.Anes[NAN].FechaAN.Mes, Admin.Anes[NAN].FechaAN.Year: Entero);
+Inicio
+    Var I, Opc, ID, OpcP, OpcC, Cant, OpcM, Dia, Mes, Year, OpcB: Entero;
+
+    Mostrar << "Bienvenido al registro de Anestesias";
+    Mostrar << "⠀⠀⠀⣤⣤⣤⣤⣤⣤⣤⣤⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⢤⣤⣿⣿⣤⡤⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⢸⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠒⠒⠒⣿⠟⢻⡟⠻⣿⠒⠒⠒⠀";
+    Mostrar << "⠀⠀⠀⠀⣿⠀⢸⡇⠀⣿⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⣿⣷⣿⣿⣾⣿⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⢿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀";
+    Mostrar << "⠀⠀⠀⠀⠀⠀⠘⠃⠀⠀⠀⠀⠀⠀⠀⠀";
+
+    Mostrar << "Ingrese la cantidad de Anestesias a registrar";
+    Leer >> NAN;
+    Mientras (NAN < 2 Or NAN > 500) Hacer;
+        Mostrar << "Solo valores entre 2-500";
+        Leer >> NAN;
+    Fin_Mientras
+
+    Para (I = 1 Hasta I = NAN) Hacer;
+        Mostrar << "Seleccione el Tipo de Anestesia";
+        Mostrar << "1: Propofol";
+        Mostrar << "2: Sevoflurano";
+        Mostrar << "3: Lidocaína";
+        Mostrar << "4: Bupivacaína";
+        Mostrar << "5: Remifentanilo";
+        Mostrar << "6: Midazolam";
+        Mostrar << "7: Ketamina";
+        Mostrar << "8: Rocuronio";
+        Mostrar << "9: Desflurano";
+        Leer >> Opc;
+        Mientras (Opc < 1 Or Opc > 10) Hacer;
+            Mostrar << "Solo valores entre 1-10";
+            Leer >> Opc;
+        Fin_Mientras
+
+        En_Caso (Opc > 0) Sea;
+            Caso(Opc = 1);
+                Admin.Anestesias[I].Tipo = "Propofol";
+            Caso(Opc = 2);
+                Admin.Anestesias[I].Tipo = "Sevoflurano";
+            Caso(Opc = 3);
+                Admin.Anestesias[I].Tipo = "Lidocaína";
+            Caso(Opc = 4);
+                Admin.Anestesias[I].Tipo = "Bupivacaína";
+            Caso(Opc = 5);
+                Admin.Anestesias[I].Tipo = "Remifentanilo";
+            Caso(Opc = 6);
+                Admin.Anestesias[I].Tipo = "Midazolam";
+            Caso(Opc = 7);
+                Admin.Anestesias[I].Tipo = "Ketamina";
+            Caso(Opc = 8);
+                Admin.Anestesias[I].Tipo = "Rocuronio";
+            Otro_Caso
+                Admin.Anestesias[I].Tipo = "Desflurano";
+        Fin_Caso
+
+        Mostrar << "Ingrese la ID de la Anestesia";
+        Leer >> ID;
+        Mientras (ID < 1) Hacer;
+            Mostrar << "Solo valores positivos";
+            Leer >> ID;
+        Fin_Mientras
+        Admin.Anes[I].ID = ID;
+
+        Mostrar << "Ingrese la Presentación de la Anestesia";
+        Mostrar << "1: Ampollas";
+        Mostrar << "2: Viales";
+        Mostrar << "3: Jeringas Pre-cargadas";
+        Mostrar << "4: Botellas de Líquido Volátil";
+        Mostrar << "5: Cilindros de Gas";
+        Mientras (OpcP < 1 Or OpcP > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcP;
+        Fin_Mientras
+
+        En_Caso (OpcP > 0) Sea;
+            Caso(OpcP = 1);
+                Admin.Anestesias[I].Presentacion = "Ampollas";
+            Caso(OpcP = 2);
+                Admin.Anestesias[I].Presentacion = "Viales";
+            Caso(OpcP = 3);
+                Admin.Anestesias[I].Presentacion = "Jeringas Pre-cargadas";
+            Caso(OpcP = 4);
+                Admin.Anestesias[I].Presentacion = "Botellas de Líquido Volátil";
+            Otro_Caso
+                Admin.Anestesias[I].Presentacion = "Cilindros de Gas";
+        Fin_Caso
+
+        Mostrar << "Seleccione la Concentración de Anestesia";
+        Mostrar << "1: 5 mg";
+        Mostrar << "2: 100 mg";
+        Mostrar << "3: 500 mg";
+        Mostrar << "4: 1000 mg";
+        Mostrar << "5: 25 mcg";
+        Mostrar << "6: 50 mcg";
+        Mostrar << "7: 400 UI";
+        Mostrar << "8: 100 UI";
+        Mostrar << "9: 50 U";
+        Mostrar << "10: 250 mg";
+        Mientras (OpcC < 1 Or OpcC > 10) Hacer;
+            Mostrar << "Solo valores entre 1-10";
+            Leer >> OpcC;
+        Fin_Mientras
+
+        En_Caso (OpcC > 0) Sea;
+            Caso(OpcC = 1);
+                Admin.Anes[I].Concentracion = "5 mg";
+            Caso(OpcC = 2);
+                Admin.Anes[I].Concentracion = "100 mg";
+            Caso(OpcC = 3);
+                Admin.Anes[I].Concentracion = "500 mg";
+            Caso(OpcC = 4);
+                Admin.Anes[I].Concentracion = "1000 mg";
+            Caso(OpcC = 5);
+                Admin.Anes[I].Concentracion = "25 mcg";
+            Caso(OpcC = 6);
+                Admin.Anes[I].Concentracion = "50 mcg";
+            Caso(OpcC = 7);
+                Admin.Anes[I].Concentracion = "400 UI";
+            Caso(OpcC = 8);
+                Admin.Anes[I].Concentracion = "100 UI";
+            Caso(OpcC = 9);
+                Admin.Anes[I].Concentracion = "50 U";
+            Otro_Caso
+                Admin.Anes[I].Concentracion = "250 mg";
+        Fin_Caso
+
+        Mostrar << "Ingrese las cantidades de Anestesia";
+        Leer >> Cant;
+        Mientras (Cant < 0) Hacer;
+            Mostrar << "Solo valores mayores a 0";
+            Leer >> Cant;
+        Fin_Mientras
+        Admin.Anes[I].Cantidad = Cant;
+
+        Mostrar << "Ingrese la medida de la Anestesia";
+        Mostrar << "1: Caja";
+        Mostrar << "2: Paquete";
+        Mostrar << "3: Unidad";
+        Mostrar << "4: Litro";
+        Mostrar << "5: Kilogramo";
+        Leer >> OpcM;
+        Mientras (OpcM < 1 Or OpcM > 5) Hacer;
+            Mostrar << "Solo valores entre 1-5";
+            Leer >> OpcM;
+        Fin_Mientras
+        En_Caso (OpcM > 0) Sea;
+            Caso(OpcM = 1);
+                Admin.Anes[I].Medida = "Caja";
+            Caso(OpcM = 2);
+                Admin.Anes[I].Medida = "Paquete";
+            Caso(OpcM = 3);
+                Admin.Anes[I].Medida = "Unidad";
+            Caso(OpcM = 4);
+                Admin.Anes[I].Medida = "Litro";
+            Otro_Caso
+                Admin.Anes[I].Medida = "Kilogramo";
+        Fin_Caso
+
+        Mostrar << "Ingrese dia de caducidad";
+        Leer >> Dia;
+        Mientras (Dia < 1 Or Dia > 31) Hacer;
+            Mostrar << "Solo valores entre 1-31";
+            Leer >> Dia;
+        Fin_Mientras
+        Admin.Anes[I].FechaAN.Dia = Dia;
+
+        Mostrar << "Ingrese mes de caducidad";
+        Leer >> Mes;
+        Mientras (Mes < 1 Or Mes > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> Mes;
+        Fin_Mientras
+        Admin.Anes[I].FechaAN.Mes = Mes;
+
+        Mostrar << "Ingrese Año de caducidad";
+        Leer >> Year;
+        Mientras (Year < 2026) Hacer;
+            Mostrar << "Solo valores mayores a 2026";
+            Leer >> Year;
+        Fin_Mientras
+        Admin.Anes[I].FechaAN.Year = Year;
+
+        Mostrar << "Seleccione el nombre del Proveedor";
+        Mostrar << "1: Electro Pharma-Aesthetics";
+        Mostrar << "2: Hollow Synthesis Labs";
+        Mostrar << "3: SevenSix Anesthesia Corp";
+        Mostrar << "4: Ranger Pain Control";
+        Mostrar << "5: NigraPro Chemical Group";
+        Mostrar << "6: Kavaleiros Pharma Solutions";
+        Mostrar << "7: WolfPack Pharmaceutical";
+        Mostrar << "8: Olympus Specialty Drugs";
+        Mostrar << "9: Nexus BioPharma";
+        Mostrar << "10: E-404 Medical Compounds";
+        Mostrar << "11: Jabra Anesthetic Supply";
+        Mostrar << "12: Otro";
+        Leer >> OpcB;
+        Mientras (OpcB < 1 Or OpcB > 12) Hacer;
+            Mostrar << "Solo valores entre 1-12";
+            Leer >> OpcB;
+        Fin_Mientras
+
+        En_Caso (OpcB > 0) Sea;
+            Caso(Opc = 1);
+                Admin.Anes[I].Proveedor = "Elecentro Pharma-Aesthetics";
+            Caso(Opc = 2);
+                Admin.Anes[I].Proveedor = "Hollow Synthesis Labs";
+            Caso(Opc = 3);
+                Admin.Anes[I].Proveedor = "SevenSix Anesthesia Corp";
+            Caso(Opc = 4);
+                Admin.Anes[I].Proveedor = "Ranger Pain Control";
+            Caso(Opc = 5);
+                Admin.Anes[I].Proveedor = "NigraPro Chemical Group";
+            Caso(Opc = 6);
+                Admin.Anes[I].Proveedor = "Kavaleiros Pharma Solutions";
+            Caso(Opc = 7);
+                Admin.Anes[I].Proveedor = "WolfPack Pharmaceutical";
+            Caso(Opc = 8);
+                Admin.Anes[I].Proveedor = "Olympus Specialty Drugs";
+            Caso(Opc = 9);
+                Admin.Anes[I].Proveedor = "Nexus BioPharma";
+            Caso(Opc = 10);
+                Admin.Anes[I].Proveedor = "E-404 Medical Compounds";
+            Caso(Opc = 11);
+                Admin.Anes[I].Proveedor = "Jabra Anesthetic Supply";
+            Otro_Caso
+                Mostrar << "Ingrese el nombre del Proveedor";
+                Leer >> Admin.Anes[I].Proveedor;
+        Fin_Caso
+    Fin_Para
+
+Fin_Procedimiento
